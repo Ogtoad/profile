@@ -4,36 +4,35 @@
    frosted glass sidebar, full-width layout.
    ════════════════════════════════════════════ */
 
-/* Computer Modern (LaTeX font) */
-@import url('https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css');
-/* Fallback: Inter + Outfit for UI elements */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=STIX+Two+Text:wght@400;500;600;700&display=swap');
 
 /* ════════════════════════════════════════════
    DESIGN TOKENS
    ════════════════════════════════════════════ */
 
 :root {
-  --bg: #0A0A0A;
-  --bg-alt: #0F0F0F;
-  --bg-card: #141414;
-  --bg-card-hover: #1A1A1A;
-  --text: #F0F0F0;
-  --text-mid: #B8B8B8;
-  --text-light: #808080;
-  --accent: #FFFFFF;
-  --accent-dim: #D0D0D0;
+  --bg: #0b0c0f;
+  --bg-alt: #101216;
+  --bg-card: #161921;
+  --bg-card-hover: #1c2029;
+  --text: #f4f1ea;
+  --text-mid: #d4cec3;
+  --text-light: #9f9a90;
+  --accent: #f8f5ef;
+  --accent-dim: #e7dfd1;
   --border: rgba(255, 255, 255, 0.08);
   --border-hover: rgba(255, 255, 255, 0.15);
   --glow: rgba(255, 255, 255, 0.04);
   --glow-strong: rgba(255, 255, 255, 0.08);
-  --font-body: 'Computer Modern Serif', 'Latin Modern Roman', 'STIX Two Text', Georgia, serif;
-  --font-heading: 'Computer Modern Serif', 'Latin Modern Roman', Georgia, serif;
-  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'STIX Two Text', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-heading: 'STIX Two Text', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-ui: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3);
+  --measure: 58rem;
+  --measure-wide: 66rem;
 }
 
 /* ════════════════════════════════════════════
@@ -62,10 +61,11 @@ body {
   font-family: var(--font-body) !important;
   color: var(--text) !important;
   background: transparent !important;
-  line-height: 1.7 !important;
+  line-height: 1.82 !important;
   overflow-x: hidden !important;
   position: relative !important;
   z-index: 1 !important;
+  font-size: 18px !important;
 }
 
 /* Sidebar watermark */
@@ -292,8 +292,8 @@ body::after {
 
 .sidebar-page-headings {
   list-style: none !important;
-  margin: 0.35rem 0 0 !important;
-  padding: 0.15rem 0 0.15rem 0.5rem !important;
+  margin: 0.2rem 0 0.45rem !important;
+  padding: 0.05rem 0 0.05rem 0.7rem !important;
   border-left: 1px solid rgba(255, 255, 255, 0.06) !important;
 }
 
@@ -315,9 +315,10 @@ body::after {
 }
 
 .sidebar-page-headings__link.is-h3 {
-  padding-left: 0.75rem !important;
-  font-size: 0.78rem !important;
-  color: rgba(180, 180, 180, 0.5) !important;
+  padding-left: 0.55rem !important;
+  font-size: 0.8rem !important;
+  line-height: 1.3 !important;
+  color: rgba(195, 190, 182, 0.58) !important;
 }
 
 .sidebar-page-headings__link:hover {
@@ -366,18 +367,17 @@ article.article-grid,
 article.article-grid.subgrid-gap,
 article.content {
   display: block !important;
-  max-width: 1200px !important;
+  max-width: 1360px !important;
   width: 100% !important;
   margin-left: auto !important;
   margin-right: auto !important;
-  padding: 0 clamp(1.5rem, 3vw, 3rem) 4rem !important;
+  padding: 0 clamp(2rem, 4vw, 4.5rem) 5rem !important;
   box-sizing: border-box !important;
-  /* Frosted glass over particles — just visible, text stays readable */
-  background: rgba(10, 10, 10, 0.65) !important;
-  backdrop-filter: blur(12px) saturate(120%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(120%) !important;
-  border-left: 1px solid rgba(255, 255, 255, 0.03) !important;
-  border-right: 1px solid rgba(255, 255, 255, 0.03) !important;
+  background: linear-gradient(180deg, rgba(11, 12, 15, 0.88), rgba(14, 16, 20, 0.84)) !important;
+  backdrop-filter: blur(14px) saturate(105%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(105%) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.035) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.035) !important;
 }
 
 /* ── All block-level children: fill container, centered ── */
@@ -430,11 +430,11 @@ article>div[class*="col-margin"] {
 
 .myst-fm-block-title {
   font-family: var(--font-heading) !important;
-  font-size: clamp(2.4rem, 5vw, 3.6rem) !important;
-  font-weight: 800 !important;
-  line-height: 1.08 !important;
+  font-size: clamp(2rem, 4vw, 3rem) !important;
+  font-weight: 600 !important;
+  line-height: 1.12 !important;
   color: var(--text) !important;
-  letter-spacing: -0.03em !important;
+  letter-spacing: -0.02em !important;
 }
 
 .myst-fm-block-subtitle {
@@ -472,24 +472,35 @@ h6,
   letter-spacing: -0.02em !important;
 }
 
-h2,
-.heading-text {
-  font-size: clamp(1.5rem, 3vw, 2.2rem) !important;
-  font-weight: 700 !important;
-  line-height: 1.15 !important;
-  margin-top: 3rem !important;
+h1 {
+  font-size: clamp(1.65rem, 2.6vw, 2.15rem) !important;
+  font-weight: 600 !important;
+  line-height: 1.28 !important;
+  margin-top: 1.4rem !important;
   margin-bottom: 1rem !important;
 }
 
-h3 {
-  font-size: 1.3rem !important;
+h2,
+.heading-text {
+  font-size: clamp(1.2rem, 1.7vw, 1.45rem) !important;
   font-weight: 600 !important;
-  margin-top: 2rem !important;
+  line-height: 1.32 !important;
+  margin-top: 2.4rem !important;
+  margin-bottom: 0.65rem !important;
+}
+
+h3 {
+  font-size: 1.02rem !important;
+  font-weight: 600 !important;
+  margin-top: 1.45rem !important;
+  margin-bottom: 0.4rem !important;
 }
 
 h4 {
-  font-size: 1.05rem !important;
+  font-size: 0.94rem !important;
   font-weight: 600 !important;
+  margin-top: 1.2rem !important;
+  margin-bottom: 0.25rem !important;
 }
 
 p,
@@ -499,9 +510,21 @@ th,
 figcaption {
   font-family: var(--font-body) !important;
   color: var(--text-mid) !important;
-  font-size: 0.95rem !important;
-  line-height: 1.7 !important;
-  font-weight: 300 !important;
+  font-size: 1.08rem !important;
+  line-height: 1.9 !important;
+  font-weight: 400 !important;
+}
+
+article p {
+  margin-top: 0 !important;
+  margin-bottom: 1.1rem !important;
+  text-wrap: pretty !important;
+}
+
+article h2 + p,
+article h3 + p,
+article h4 + p {
+  margin-top: 0.15rem !important;
 }
 
 strong,
@@ -877,19 +900,44 @@ hr {
    ESSAY MODE OVERRIDES
    ════════════════════════════════════════════ */
 
-:root {
-  --measure: 44rem;
-  --measure-wide: 52rem;
-}
-
 .sidebar-runtime-nav {
   display: grid !important;
   gap: 1rem !important;
+  min-height: 100% !important;
 }
 
 .sidebar-runtime-section {
   display: grid !important;
   gap: 0.35rem !important;
+}
+
+.sidebar-runtime-contact {
+  margin-top: auto !important;
+  padding: 1rem 0.5rem 0 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+.sidebar-runtime-contact__title {
+  font-family: var(--font-ui) !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.14em !important;
+  color: var(--text-light) !important;
+  margin-bottom: 0.55rem !important;
+}
+
+.sidebar-runtime-contact__text {
+  margin: 0 0 0.45rem !important;
+  font-size: 0.88rem !important;
+  line-height: 1.55 !important;
+  color: rgba(212, 206, 195, 0.72) !important;
+}
+
+.sidebar-runtime-contact__link {
+  display: inline-block !important;
+  font-size: 0.84rem !important;
+  color: var(--accent-dim) !important;
 }
 
 .sidebar-runtime-section__title {
@@ -911,7 +959,7 @@ hr {
 .sidebar-runtime-nav a,
 .sidebar-runtime-nav .sidebar-page-link {
   font-family: var(--font-body) !important;
-  font-size: 0.95rem !important;
+  font-size: 0.96rem !important;
   font-weight: 400 !important;
   color: var(--text-mid) !important;
   letter-spacing: 0.01em !important;
@@ -922,8 +970,8 @@ hr {
   margin-bottom: 2px !important;
   border-left: 2px solid transparent !important;
   display: block !important;
-  padding: 0.45rem 0.5rem !important;
-  line-height: 1.4 !important;
+  padding: 0.42rem 0.5rem !important;
+  line-height: 1.35 !important;
 }
 
 .sidebar-runtime-nav a:hover,
@@ -954,9 +1002,9 @@ article .myst-admonition,
 article .myst-grid,
 article .myst-card,
 article .myst-footer-links {
-  max-width: var(--measure) !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 
@@ -966,8 +1014,8 @@ article .mermaid,
 article figure {
   max-width: var(--measure-wide) !important;
   width: 100% !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 
@@ -977,9 +1025,9 @@ li,
 td,
 th,
 figcaption {
-  font-size: 1.02rem !important;
-  line-height: 1.95 !important;
-  font-weight: 350 !important;
+  font-size: 1.1rem !important;
+  line-height: 1.92 !important;
+  font-weight: 400 !important;
 }
 
 .myst-grid {
@@ -1036,21 +1084,22 @@ details summary,
 }
 
 .katex-display {
-  margin: 2rem auto !important;
+  margin: 2rem 0 !important;
   padding: 0 !important;
   overflow-x: auto !important;
+  font-size: 1.08em !important;
 }
 
 blockquote {
   border-left: 1px solid rgba(255, 255, 255, 0.12) !important;
   padding-left: 1.25rem !important;
   background: transparent !important;
-  margin: 2rem auto !important;
+  margin: 2rem 0 !important;
 }
 
 hr {
   border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
-  margin: 2.5rem auto !important;
+  margin: 2.75rem 0 !important;
 }
 
 table {
