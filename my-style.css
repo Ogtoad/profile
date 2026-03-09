@@ -1,0 +1,1094 @@
+/* ════════════════════════════════════════════
+   PROPHILE — CUSTOM THEME OVERRIDES
+   Computer Modern (LaTeX font), monochrome,
+   frosted glass sidebar, full-width layout.
+   ════════════════════════════════════════════ */
+
+/* Computer Modern (LaTeX font) */
+@import url('https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css');
+/* Fallback: Inter + Outfit for UI elements */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;600;700;800&display=swap');
+
+/* ════════════════════════════════════════════
+   DESIGN TOKENS
+   ════════════════════════════════════════════ */
+
+:root {
+  --bg: #0A0A0A;
+  --bg-alt: #0F0F0F;
+  --bg-card: #141414;
+  --bg-card-hover: #1A1A1A;
+  --text: #F0F0F0;
+  --text-mid: #B8B8B8;
+  --text-light: #808080;
+  --accent: #FFFFFF;
+  --accent-dim: #D0D0D0;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.15);
+  --glow: rgba(255, 255, 255, 0.04);
+  --glow-strong: rgba(255, 255, 255, 0.08);
+  --font-body: 'Computer Modern Serif', 'Latin Modern Roman', 'STIX Two Text', Georgia, serif;
+  --font-heading: 'Computer Modern Serif', 'Latin Modern Roman', Georgia, serif;
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ════════════════════════════════════════════
+   FORCE DARK MODE EVERYWHERE
+   ════════════════════════════════════════════ */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark !important;
+}
+
+/* Force dark class immediately */
+html:not(.dark) {
+  --tw-bg-opacity: 1;
+}
+
+html,
+html.light,
+html.dark {
+  background: var(--bg) !important;
+}
+
+body {
+  font-family: var(--font-body) !important;
+  color: var(--text) !important;
+  background: transparent !important;
+  line-height: 1.7 !important;
+  overflow-x: hidden !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Sidebar watermark */
+/* Sidebar watermark — Centered in Sidebar Area (350px) */
+body::after {
+  content: "" !important;
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 350px !important;
+  /* Exact sidebar width */
+  height: 400px !important;
+  z-index: 99999 !important;
+  /* Above everything */
+  pointer-events: none !important;
+  background: var(--site-logo-url, url('/logo.png')) no-repeat center bottom / contain !important;
+  opacity: 0.20 !important;
+  display: block !important;
+}
+
+
+
+
+/* ════════════════════════════════════════════
+   TOP NAV BAR — glassmorphism
+   ════════════════════════════════════════════ */
+
+/* ════════════════════════════════════════════
+   TOP NAV BAR — Minimalist Glass
+   ════════════════════════════════════════════ */
+
+.myst-top-nav {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 60px !important;
+  background: rgba(10, 10, 10, 0.45) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid var(--border) !important;
+  z-index: 100 !important;
+  /* Above everything */
+  box-shadow: none !important;
+}
+
+.myst-top-nav-bar {
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 1.5rem !important;
+  height: 100% !important;
+}
+
+.myst-home-link {
+  color: var(--text) !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  margin-left: 10px !important;
+}
+
+/* Hide non-functional elements */
+.myst-top-nav-menu-button,
+.myst-search-bar,
+.myst-theme-button,
+.myst-fm-downloads-dropdown,
+#headlessui-menu-button-\:Rs8ucp\:>svg {
+  display: none !important;
+}
+
+/* ════════════════════════════════════════════
+   SIDEBAR — Full-Height Transparency
+   ════════════════════════════════════════════ */
+
+.myst-primary-sidebar {
+  display: flex !important;
+  flex-direction: column !important;
+  position: fixed !important;
+  left: 0 !important;
+  top: 0 !important;
+  /* Force to top */
+  width: 350px !important;
+  height: 100vh !important;
+  z-index: 90 !important;
+  /* Below top nav */
+  background: transparent !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+  overflow: visible !important;
+  /* Prevent clipping of logo */
+  pointer-events: auto !important;
+}
+
+/* Watermark removed from pseudo-element to prevent clipping */
+.myst-primary-sidebar::before,
+.myst-primary-sidebar::after {
+  content: none !important;
+  display: none !important;
+}
+
+
+.myst-primary-sidebar-nav {
+  padding: 85px 1rem 400px !important;
+  /* Clear header at top, room for logo at bottom */
+  overflow-y: auto !important;
+  flex: 1 1 auto !important;
+  background: transparent !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Force all inner containers to be transparent */
+.myst-primary-sidebar-pointer,
+.myst-primary-nav-container,
+.myst-toc-nested-list,
+.myst-primary-sidebar-nav *,
+.myst-primary-sidebar>div,
+.myst-primary-sidebar>div>div {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Hide redundant theme elements */
+.myst-primary-sidebar-footer,
+.myst-made-with-myst,
+.myst-primary-sidebar-pointer::after,
+.myst-primary-sidebar::after {
+  display: none !important;
+}
+
+
+/* ── TOC links — minimal text-only style to keep logo visible ── */
+.myst-toc a,
+.myst-toc .myst-toc-item {
+  font-family: var(--font-body) !important;
+  font-size: 0.95rem !important;
+  font-weight: 400 !important;
+  color: var(--text-mid) !important;
+  letter-spacing: 0.01em !important;
+  border-radius: 4px !important;
+  transition: all 0.25s var(--ease) !important;
+  opacity: 0.5 !important;
+  /* High transparency for default state */
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  margin-bottom: 2px !important;
+  border-left: 2px solid transparent !important;
+}
+
+.myst-toc a:hover,
+.myst-toc .myst-toc-item:hover {
+  opacity: 0.95 !important;
+  color: var(--text) !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  /* Very faint hover hint */
+}
+
+.myst-toc a.active,
+.myst-toc a[aria-current="page"] {
+  opacity: 1 !important;
+  font-weight: 600 !important;
+  color: var(--accent) !important;
+  background: transparent !important;
+  border-left: 2px solid var(--accent) !important;
+  /* Minimal active indicator */
+  padding-left: 10px !important;
+}
+
+
+/* Section headers in sidebar */
+.myst-toc .myst-toc-item div[title] {
+  font-family: var(--font-ui) !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.14em !important;
+  color: var(--text-light) !important;
+  opacity: 0.5 !important;
+  /* More transparent */
+  padding-top: 1rem !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
+
+/* ── Force all TOC sections open (since React is stripped) ── */
+.myst-toc div[data-state="closed"] {
+  display: block !important;
+}
+
+.myst-toc .collapsible-content[hidden] {
+  display: block !important;
+}
+
+.myst-toc .collapsible-content {
+  display: block !important;
+  height: auto !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  visibility: visible !important;
+  padding-left: 1rem !important;
+}
+
+.sidebar-page-link {
+  display: block !important;
+  padding: 0.5rem !important;
+  margin: 0.2rem 0 !important;
+  line-height: 1.4 !important;
+}
+
+.sidebar-page-link.is-indented {
+  padding-left: 1.8rem !important;
+  opacity: 0.4 !important;
+  font-size: 0.88rem !important;
+}
+
+.sidebar-page-link.is-indented::before {
+  content: "— " !important;
+  margin-right: 4px !important;
+  opacity: 0.3 !important;
+}
+
+.sidebar-page-headings {
+  list-style: none !important;
+  margin: 0.35rem 0 0 !important;
+  padding: 0.15rem 0 0.15rem 0.5rem !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+.sidebar-page-headings__item {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.sidebar-page-headings__link {
+  display: block !important;
+  padding: 0.2rem 0.4rem !important;
+  border-radius: 4px !important;
+  color: rgba(180, 180, 180, 0.65) !important;
+  text-decoration: none !important;
+  font-family: var(--font-body) !important;
+  font-size: 0.84rem !important;
+  line-height: 1.35 !important;
+  transition: color 0.25s var(--ease), background 0.25s var(--ease) !important;
+}
+
+.sidebar-page-headings__link.is-h3 {
+  padding-left: 0.75rem !important;
+  font-size: 0.78rem !important;
+  color: rgba(180, 180, 180, 0.5) !important;
+}
+
+.sidebar-page-headings__link:hover {
+  color: rgba(240, 240, 240, 0.9) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.sidebar-page-headings__link.is-active {
+  color: rgba(255, 255, 255, 1) !important;
+  font-weight: 500 !important;
+}
+
+/* Hide the expand/collapse buttons since we are always open */
+.myst-toc button {
+  display: none !important;
+}
+
+
+/* ── Left-align the header title ── */
+.myst-top-nav-bar {
+  max-width: none !important;
+  margin: 0 !important;
+  padding-left: 20px !important;
+}
+
+.myst-home-link {
+  margin-left: 10px !important;
+}
+
+
+/* ════════════════════════════════════════════
+   MAIN CONTENT — FULL WIDTH, CENTER-ALIGNED
+   ════════════════════════════════════════════ */
+
+main.article-grid,
+main.article-grid.grid-gap {
+  display: block !important;
+  margin-left: 350px !important;
+  width: calc(100% - 350px) !important;
+  max-width: none !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+article.article-grid,
+article.article-grid.subgrid-gap,
+article.content {
+  display: block !important;
+  max-width: 1200px !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 0 clamp(1.5rem, 3vw, 3rem) 4rem !important;
+  box-sizing: border-box !important;
+  /* Frosted glass over particles — just visible, text stays readable */
+  background: rgba(10, 10, 10, 0.65) !important;
+  backdrop-filter: blur(12px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(120%) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.03) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.03) !important;
+}
+
+/* ── All block-level children: fill container, centered ── */
+article>*,
+article>div>* {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Paragraphs + text — readable but generous */
+article p,
+article li,
+article blockquote,
+article figcaption {
+  max-width: 100% !important;
+}
+
+/* Grids, tables, math, admonitions — always full container width */
+article .myst-grid,
+article table,
+article .mermaid,
+article .myst-admonition,
+article .myst-exercise,
+article details,
+article pre,
+article .katex-display,
+article .myst-footer-links {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* ── HIDE the CONTENTS outline (glitchy in top-right) ── */
+article>div[class*="sticky"],
+article>div[class*="col-margin"] {
+  display: none !important;
+}
+
+/* ════════════════════════════════════════════
+   FRONTMATTER BLOCK (PAGE TITLE)
+   ════════════════════════════════════════════ */
+
+.myst-fm-block {
+  padding-top: 3rem !important;
+  padding-bottom: 1rem !important;
+  max-width: initial !important;
+  margin-left: initial !important;
+  margin-right: initial !important;
+}
+
+
+.myst-fm-block-title {
+  font-family: var(--font-heading) !important;
+  font-size: clamp(2.4rem, 5vw, 3.6rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.08 !important;
+  color: var(--text) !important;
+  letter-spacing: -0.03em !important;
+}
+
+.myst-fm-block-subtitle {
+  font-family: var(--font-heading) !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.15em !important;
+  color: var(--text-light) !important;
+}
+
+/* Hide the badges bar (CC license, GitHub, downloads) or dim them */
+.myst-fm-block-header {
+  opacity: 0.4 !important;
+  transition: opacity 0.3s var(--ease) !important;
+}
+
+.myst-fm-block-header:hover {
+  opacity: 1 !important;
+}
+
+/* ════════════════════════════════════════════
+   TYPOGRAPHY
+   ════════════════════════════════════════════ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading-text {
+  font-family: var(--font-heading) !important;
+  color: var(--text) !important;
+  letter-spacing: -0.02em !important;
+}
+
+h2,
+.heading-text {
+  font-size: clamp(1.5rem, 3vw, 2.2rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+  margin-top: 3rem !important;
+  margin-bottom: 1rem !important;
+}
+
+h3 {
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
+  margin-top: 2rem !important;
+}
+
+h4 {
+  font-size: 1.05rem !important;
+  font-weight: 600 !important;
+}
+
+p,
+li,
+td,
+th,
+figcaption {
+  font-family: var(--font-body) !important;
+  color: var(--text-mid) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.7 !important;
+  font-weight: 300 !important;
+}
+
+strong,
+b {
+  font-weight: 500 !important;
+  color: var(--text) !important;
+}
+
+em {
+  color: var(--accent-dim) !important;
+}
+
+a {
+  color: var(--accent-dim) !important;
+  text-decoration: none !important;
+  transition: color 0.3s var(--ease) !important;
+}
+
+a:hover {
+  color: var(--accent) !important;
+}
+
+/* Section link anchors */
+a.no-underline.text-inherit {
+  color: var(--text-light) !important;
+}
+
+/* ════════════════════════════════════════════
+   CARDS — GLASSMORPHISM
+   ════════════════════════════════════════════ */
+
+.myst-card {
+  background: rgba(20, 20, 20, 0.45) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: all 0.35s var(--ease) !important;
+  overflow: hidden !important;
+}
+
+.myst-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: var(--border-hover) !important;
+  background: rgba(26, 26, 26, 0.6) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.myst-card-title {
+  font-family: var(--font-heading) !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: var(--text) !important;
+}
+
+.myst-card:hover .myst-card-title {
+  text-decoration: none !important;
+  color: var(--accent) !important;
+}
+
+.myst-card-body {
+  padding: 1.5rem !important;
+}
+
+.myst-card-body p {
+  font-size: 0.88rem !important;
+  color: var(--text-mid) !important;
+  line-height: 1.65 !important;
+  font-weight: 300 !important;
+}
+
+/* Grid for cards */
+.myst-grid {
+  gap: 1.25rem !important;
+}
+
+/* ════════════════════════════════════════════
+   ADMONITIONS — GLASSMORPHISM
+   ════════════════════════════════════════════ */
+
+.myst-admonition {
+  background: rgba(20, 20, 20, 0.45) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  box-shadow: var(--shadow-sm) !important;
+  overflow: hidden !important;
+  transition: all 0.35s var(--ease) !important;
+}
+
+.myst-admonition:hover {
+  border-color: var(--border-hover) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* Admonition header */
+.myst-admonition-header {
+  background: rgba(15, 15, 15, 0.6) !important;
+  border-bottom: 1px solid var(--border) !important;
+  padding: 0.75rem 1rem !important;
+}
+
+.myst-admonition-header-text {
+  font-family: var(--font-heading) !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  color: var(--text) !important;
+}
+
+/* Admonition body */
+.myst-admonition-body {
+  padding: 1rem 1.25rem !important;
+}
+
+.myst-admonition-body p {
+  color: var(--text-mid) !important;
+}
+
+/* Type-specific border accents */
+.myst-admonition.tip,
+.myst-admonition-tip {
+  border-left-color: rgba(100, 200, 150, 0.4) !important;
+}
+
+.myst-admonition.warning,
+.myst-admonition-warning {
+  border-left-color: rgba(220, 180, 80, 0.4) !important;
+}
+
+.myst-admonition.important,
+.myst-admonition-important {
+  border-left-color: rgba(120, 160, 255, 0.4) !important;
+}
+
+.myst-admonition.note,
+.myst-admonition-note {
+  border-left-color: rgba(180, 180, 180, 0.25) !important;
+}
+
+/* ════════════════════════════════════════════
+   DROPDOWNS / DETAILS (for exercises, unknown directives too)
+   ════════════════════════════════════════════ */
+
+details,
+.myst-exercise {
+  background: rgba(20, 20, 20, 0.35) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+}
+
+details summary,
+.myst-exercise-header {
+  background: rgba(15, 15, 15, 0.5) !important;
+  border-bottom: 1px solid var(--border) !important;
+  color: var(--text-mid) !important;
+  font-family: var(--font-heading) !important;
+}
+
+details summary:hover,
+.myst-exercise-header:hover {
+  background: var(--glow-strong) !important;
+}
+
+/* ════════════════════════════════════════════
+   CODE BLOCKS
+   ════════════════════════════════════════════ */
+
+pre {
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  padding: 1.25rem !important;
+  overflow-x: auto !important;
+  font-size: 0.85rem !important;
+}
+
+code {
+  background: rgba(255, 255, 255, 0.05) !important;
+  padding: 0.15em 0.4em !important;
+  border-radius: 4px !important;
+  font-size: 0.88em !important;
+  color: var(--accent-dim) !important;
+}
+
+pre code {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* ════════════════════════════════════════════
+   TABLES
+   ════════════════════════════════════════════ */
+
+table {
+  border-collapse: collapse !important;
+  width: 100% !important;
+  margin: 1.5rem 0 !important;
+}
+
+th {
+  background: rgba(20, 20, 20, 0.6) !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 600 !important;
+  color: var(--text) !important;
+  text-align: left !important;
+  padding: 0.75rem 1rem !important;
+  border-bottom: 1px solid var(--border-hover) !important;
+}
+
+td {
+  padding: 0.75rem 1rem !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+tr:hover td {
+  background: var(--glow) !important;
+}
+
+/* ════════════════════════════════════════════
+   MATH (KaTeX)
+   ════════════════════════════════════════════ */
+
+.katex,
+.katex * {
+  color: var(--accent-dim) !important;
+}
+
+.katex-display {
+  margin: 1.5rem 0 !important;
+  padding: 1rem !important;
+}
+
+/* Equation number link */
+.katex-display+div a,
+div.flex>div>a[href^="#"] {
+  color: var(--text-light) !important;
+  font-size: 0.85rem !important;
+}
+
+/* ════════════════════════════════════════════
+   BLOCKQUOTE / EPIGRAPH
+   ════════════════════════════════════════════ */
+
+blockquote {
+  border-left: 2px solid var(--text-light) !important;
+  padding-left: 1.5rem !important;
+  color: var(--text-mid) !important;
+  background: transparent !important;
+  margin: 1.5rem 0 !important;
+}
+
+.epigraph blockquote {
+  font-style: italic !important;
+}
+
+/* ════════════════════════════════════════════
+   HR DIVIDERS
+   ════════════════════════════════════════════ */
+
+hr {
+  border: none !important;
+  border-top: 1px solid var(--border) !important;
+  margin: 2.5rem 0 !important;
+  opacity: 1 !important;
+}
+
+/* ════════════════════════════════════════════
+   FOOTER NAVIGATION LINKS
+   ════════════════════════════════════════════ */
+
+.myst-footer-link {
+  background: rgba(20, 20, 20, 0.3) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  color: var(--text-mid) !important;
+  transition: all 0.3s var(--ease) !important;
+}
+
+.myst-footer-link:hover {
+  border-color: var(--border-hover) !important;
+  background: var(--glow-strong) !important;
+  color: var(--text) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.myst-footer-link-group {
+  color: var(--text-light) !important;
+}
+
+/* ════════════════════════════════════════════
+   MERMAID
+   ════════════════════════════════════════════ */
+
+.mermaid {
+  background: rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  padding: 1.5rem !important;
+  margin: 1.5rem 0 !important;
+}
+
+/* ════════════════════════════════════════════
+   SCROLLBAR
+   ════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Primary scrollbar in sidebar */
+.primary-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.primary-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ════════════════════════════════════════════
+   TSPARTICLES CONTAINER (post-build injection)
+   ════════════════════════════════════════════ */
+
+#tsparticles {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  background: transparent !important;
+}
+
+/* Ensure the canvas is visible */
+#tsparticles canvas {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+
+/* ════════════════════════════════════════════
+   SKIP LINKS / DIALOGS — HIDDEN
+   ════════════════════════════════════════════ */
+
+.myst-skip-to-article {
+  background: var(--bg-card) !important;
+}
+
+#myst-no-css {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+/* ════════════════════════════════════════════
+   ESSAY MODE OVERRIDES
+   ════════════════════════════════════════════ */
+
+:root {
+  --measure: 44rem;
+  --measure-wide: 52rem;
+}
+
+.sidebar-runtime-nav {
+  display: grid !important;
+  gap: 1rem !important;
+}
+
+.sidebar-runtime-section {
+  display: grid !important;
+  gap: 0.35rem !important;
+}
+
+.sidebar-runtime-section__title {
+  font-family: var(--font-ui) !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.14em !important;
+  color: var(--text-light) !important;
+  opacity: 0.7 !important;
+  margin-top: 0.75rem !important;
+}
+
+.sidebar-runtime-links {
+  display: grid !important;
+  gap: 0.15rem !important;
+}
+
+.sidebar-runtime-nav a,
+.sidebar-runtime-nav .sidebar-page-link {
+  font-family: var(--font-body) !important;
+  font-size: 0.95rem !important;
+  font-weight: 400 !important;
+  color: var(--text-mid) !important;
+  letter-spacing: 0.01em !important;
+  border-radius: 4px !important;
+  transition: all 0.25s var(--ease) !important;
+  opacity: 0.7 !important;
+  background: transparent !important;
+  margin-bottom: 2px !important;
+  border-left: 2px solid transparent !important;
+  display: block !important;
+  padding: 0.45rem 0.5rem !important;
+  line-height: 1.4 !important;
+}
+
+.sidebar-runtime-nav a:hover,
+.sidebar-runtime-nav .sidebar-page-link:hover {
+  opacity: 1 !important;
+  color: var(--text) !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+
+.sidebar-runtime-nav a.active,
+.sidebar-runtime-nav a[aria-current="page"] {
+  opacity: 1 !important;
+  font-weight: 600 !important;
+  color: var(--accent) !important;
+  border-left: 2px solid var(--accent) !important;
+}
+
+article p,
+article ul,
+article ol,
+article blockquote,
+article figcaption,
+article hr,
+article table,
+article pre,
+article details,
+article .myst-admonition,
+article .myst-grid,
+article .myst-card,
+article .myst-footer-links {
+  max-width: var(--measure) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+
+
+article .katex-display,
+article .mermaid,
+article figure {
+  max-width: var(--measure-wide) !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+
+
+p,
+li,
+td,
+th,
+figcaption {
+  font-size: 1.02rem !important;
+  line-height: 1.95 !important;
+  font-weight: 350 !important;
+}
+
+.myst-grid {
+  display: block !important;
+  gap: 0 !important;
+}
+
+.myst-card,
+.myst-admonition,
+details,
+.myst-exercise {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.myst-card:hover,
+.myst-admonition:hover,
+details:hover,
+.myst-exercise:hover {
+  transform: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.myst-card-body,
+.myst-admonition-body {
+  padding: 0 !important;
+}
+
+.myst-card-title,
+.myst-admonition-header-text,
+details summary,
+.myst-exercise-header {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  font-size: 1rem !important;
+}
+
+.myst-admonition.tip,
+.myst-admonition-tip,
+.myst-admonition.warning,
+.myst-admonition-warning,
+.myst-admonition.important,
+.myst-admonition-important,
+.myst-admonition.note,
+.myst-admonition-note {
+  border-left-color: transparent !important;
+}
+
+.katex-display {
+  margin: 2rem auto !important;
+  padding: 0 !important;
+  overflow-x: auto !important;
+}
+
+blockquote {
+  border-left: 1px solid rgba(255, 255, 255, 0.12) !important;
+  padding-left: 1.25rem !important;
+  background: transparent !important;
+  margin: 2rem auto !important;
+}
+
+hr {
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  margin: 2.5rem auto !important;
+}
+
+table {
+  border-collapse: collapse !important;
+}
+
+table th,
+table td {
+  padding: 0.75rem 0.25rem !important;
+}
+
+.myst-footer-link {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.myst-footer-link:hover {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* ════════════════════════════════════════════
+   RESPONSIVE — below 1024px collapse sidebar
+   ════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .myst-primary-sidebar {
+    display: none !important;
+  }
+
+  .myst-top-nav-menu-button {
+    display: flex !important;
+  }
+
+  main.article-grid {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+}

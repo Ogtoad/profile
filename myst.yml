@@ -1,0 +1,27 @@
+# MyST Book Configuration
+version: 1
+
+project:
+  title: Tillämpad AI
+  description: AI-konsult med fokus på tillämpad matematik, systemarkitektur och konkret värdeskapande.
+  toc:
+    - file: content/index.md
+      title: Hem
+    - file: content/om-mig.md
+      title: Om mig
+
+site:
+  template: book-theme
+  title: Tillämpad AI
+  nav:
+    - title: Hem
+      url: /
+    - title: Om mig
+      url: /om-mig
+  options:
+    favicon: ./favicon.svg
+    logo: ./logo.png
+    logo_text: Tillämpad AI
+    hide_toc: false
+    hide_outline: true
+    style: ./my-style.css
