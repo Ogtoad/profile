@@ -133,10 +133,7 @@
     footerTitle.textContent = 'Kontakt';
     footer.appendChild(footerTitle);
 
-    var footerText = document.createElement('p');
-    footerText.className = 'sidebar-runtime-contact__text';
-    footerText.textContent = 'Tillgänglig för konsultuppdrag inom tillämpad AI.';
-    footer.appendChild(footerText);
+    // footer.appendChild(footerText);
 
     if (aboutHref) {
       var footerLink = document.createElement('a');
@@ -152,9 +149,63 @@
     toc.appendChild(runtimeNav);
   }
 
+  function setupMobileSidebar() {
+    var menuButton = document.querySelector('.myst-top-nav-menu-button');
+    var sidebar = document.querySelector('.myst-primary-sidebar');
+
+    if (!menuButton || !sidebar) {
+      return;
+    }
+
+    var backdrop = document.querySelector('.mobile-sidebar-backdrop');
+
+    if (!backdrop) {
+      backdrop = document.createElement('button');
+      backdrop.className = 'mobile-sidebar-backdrop';
+      backdrop.type = 'button';
+      backdrop.setAttribute('aria-label', 'Close navigation');
+      document.body.appendChild(backdrop);
+    }
+
+    function closeSidebar() {
+      document.body.classList.remove('sidebar-open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }
+
+    function toggleSidebar() {
+      var isOpen = document.body.classList.toggle('sidebar-open');
+      menuButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.addEventListener('click', function (event) {
+      event.preventDefault();
+      toggleSidebar();
+    });
+
+    backdrop.addEventListener('click', closeSidebar);
+
+    sidebar.addEventListener('click', function (event) {
+      var target = event.target;
+      if (target && target.closest('a[href]') && window.innerWidth <= 1024) {
+        closeSidebar();
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 1024) {
+        closeSidebar();
+      }
+    });
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', buildIndex, { once: true });
+    document.addEventListener('DOMContentLoaded', function () {
+      buildIndex();
+      setupMobileSidebar();
+    }, { once: true });
   } else {
     buildIndex();
+    setupMobileSidebar();
   }
 })();
