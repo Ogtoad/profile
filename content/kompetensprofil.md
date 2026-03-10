@@ -10,8 +10,6 @@ Det här är en komprimerad översikt av min praktiska profil: vilka typer av pr
 
 ---
 
-(karnkompetenser)=
-## Kärnkompetenser
 
 ### Tillämpad AI och automation
 
@@ -38,6 +36,8 @@ Det här är en komprimerad översikt av min praktiska profil: vilka typer av pr
 
 (teknikstack)=
 ## Teknikstack
+
+
 
 ### Språk och ramverk
 
