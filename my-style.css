@@ -1486,3 +1486,216 @@ table td {
     font-size: 1em !important;
   }
 }
+
+/* Post-2026 document rhythm overrides */
+
+:root {
+  --latex-measure: 46rem;
+  --latex-indent: 1.35rem;
+}
+
+article.article-grid,
+article.article-grid.subgrid-gap,
+article.content {
+  max-width: 78rem !important;
+}
+
+.myst-fm-block,
+article > section,
+article > div {
+  max-width: var(--latex-measure) !important;
+}
+
+.myst-fm-block {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.myst-fm-block-title,
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading) !important;
+}
+
+.myst-fm-block-title {
+  letter-spacing: -0.025em !important;
+}
+
+h1 {
+  font-size: clamp(1.72rem, 2.4vw, 2.2rem) !important;
+  margin-top: 1.2rem !important;
+  margin-bottom: 1.1rem !important;
+}
+
+h2,
+.heading-text {
+  font-size: clamp(1.18rem, 1.55vw, 1.42rem) !important;
+  margin-top: 2.8rem !important;
+  margin-bottom: 0.55rem !important;
+}
+
+h3 {
+  font-size: 1rem !important;
+  margin-top: 1.4rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+h4 {
+  font-size: 0.94rem !important;
+  margin-top: 1.15rem !important;
+  margin-bottom: 0.18rem !important;
+}
+
+article p,
+article li,
+article td,
+article th,
+article figcaption {
+  max-width: var(--latex-measure) !important;
+  font-size: 1.06rem !important;
+  line-height: 1.88 !important;
+}
+
+article ul,
+article ol {
+  max-width: var(--latex-measure) !important;
+  padding-left: 1.4rem !important;
+}
+
+article li + li {
+  margin-top: 0.36rem !important;
+}
+
+article h2 + p,
+article h2 + ul,
+article h2 + ol,
+article h3 + p,
+article h3 + ul,
+article h3 + ol,
+article h4 + p,
+article h4 + ul,
+article h4 + ol {
+  margin-left: var(--latex-indent) !important;
+}
+
+article h3 + p,
+article h4 + p {
+  padding-left: 0.95rem !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+article hr {
+  border: none !important;
+  height: auto !important;
+  margin: 2.8rem 0 2.35rem !important;
+  text-align: center !important;
+}
+
+article hr::after {
+  content: "——" !important;
+  display: inline-block !important;
+  color: rgba(232, 224, 212, 0.46) !important;
+  font-size: 1rem !important;
+  letter-spacing: 0.24em !important;
+}
+
+.appendix-directory {
+  max-width: var(--latex-measure) !important;
+  margin: 2rem 0 3rem !important;
+}
+
+.appendix-directory h2 {
+  margin-top: 0 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.appendix-directory p,
+.appendix-directory ul {
+  margin-left: var(--latex-indent) !important;
+}
+
+.appendix-directory ul {
+  margin-top: 0.45rem !important;
+  margin-bottom: 1.2rem !important;
+}
+
+.appendix-directory hr {
+  margin: 1.7rem 0 1.5rem !important;
+}
+
+.appendix-entry__heading,
+.appendix-page-entry {
+  align-items: baseline !important;
+}
+
+.appendix-page-entries {
+  margin-top: 0.3rem !important;
+  padding-top: 0.35rem !important;
+}
+
+.appendix-page-entry__code,
+.appendix-entry__code {
+  min-width: 2.6rem !important;
+}
+
+.myst-primary-sidebar-nav {
+  overscroll-behavior: contain !important;
+  -webkit-overflow-scrolling: touch !important;
+  touch-action: pan-y !important;
+}
+
+body.sidebar-open-lock {
+  overflow: hidden !important;
+}
+
+@media (max-width: 1024px) {
+  .myst-top-nav-menu-button {
+    display: inline-flex !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+  }
+
+  .myst-primary-sidebar {
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+  }
+
+  .myst-primary-sidebar-nav {
+    height: 100% !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  article h2 + p,
+  article h2 + ul,
+  article h2 + ol,
+  article h3 + p,
+  article h3 + ul,
+  article h3 + ol,
+  article h4 + p,
+  article h4 + ul,
+  article h4 + ol,
+  .appendix-directory p,
+  .appendix-directory ul {
+    margin-left: 0.95rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  article p,
+  article li,
+  article td,
+  article th,
+  article figcaption {
+    font-size: 0.99rem !important;
+    line-height: 1.8 !important;
+  }
+
+  article hr {
+    margin: 2.3rem 0 2rem !important;
+  }
+}

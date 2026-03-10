@@ -4,33 +4,59 @@ title: Appendix
 
 # Appendix
 
-Detta appendix fungerar som en sammanhållen översikt över webbplatsens kapitel, teman och ingångar.
+Detta appendix fungerar som en sammanhållen orientering över webbplatsens sidor, sektioner och ingångar.
 
 :::{div}
-:class: appendix-overview
-### [Om mig](/om-mig)
+:class: appendix-directory
+## A. [Om mig](/om-mig)
 
 Profil, arbetssätt, värderingar och teknisk grund.
 
-### [Kompetensprofil](/kompetensprofil)
+- Tankesättet
+- Varför det spelar roll
+- Värderingar om AI och dess plats i samhället
+- Teknik och verktyg
+- Vad jag gör idag
 
-En kondenserad översikt av kompetenser, teknikstack och professionell passform.
+---
 
-### [Ai. pipelines och grafer](/harness-engineering)
+## B. [Kompetensprofil](/kompetensprofil)
 
-- Pipelines och harness engineering
-- Genomförbarhet och systemkritik
-- Typsäkerhet, minne, MCP, ACP, RAG och LoRA
+En kondenserad men praktisk översikt av kompetenser, systemtänkande, teknikstack och professionell passform.
 
-### [Automation](/automatisera-arbetsfl-den)
+- Kärnkompetenser
+- Teknikstack
+- Professionell passform
 
-- Probabilistisk automation
+---
+
+## C. [Ai. pipelines och grafer](/harness-engineering)
+
+Arkitektur för agentflöden, harness engineering och distribuerade AI-system.
+
+- Harness engineering och pipelines
+- Kritisk granskning av genomförbarhet
+- Typsäkerhet, minnesstrukturer och multi-modellnätverk
+- MCP, ACP, RAG, LoRA och KV-cache
+
+---
+
+## D. [Automation](/automatisera-arbetsfloden)
+
+Probabilistisk automation, dokumentgranskning, avvikelsehantering och systemresiliens.
+
+- Från deterministisk till probabilistisk automatisering
+- Reducering av redundans
 - Dokumentgranskning och avvikelsehantering
 - Kvalitetssäkring och systemresiliens
 
-### [Datorseende och Generativ Syntes](/computer-vision)
+---
 
-- Visuell informationsutvinning
+## E. [Datorseende och Generativ Syntes](/computer-vision)
+
+Visuell informationsutvinning, akustisk analys och generativa modeller för bild, ljud och syntetisk data.
+
+- Visuell informationsutvinning och bearbetning
 - Akustisk analys via spektrogram
-- Generativ bild-, ljud- och datasyntes
+- Från diskriminativ analys till generativ syntes
 :::

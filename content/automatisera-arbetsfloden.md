@@ -16,7 +16,7 @@ Traditionell automatisering bygger helt på deterministisk logik. Ett standardis
 
 AI:s funktion i moderna arbetsflöden är att bygga en bro över detta gap genom att införa probabilistiska bedömningar. Maskininlärningsmodeller besitter ingen egentlig förståelse för kontext; de identifierar mönster i enorma datamängder. Detta gör det möjligt att extrahera information från ostrukturerade källor som fritext eller bilder, analysera den och därefter låta RPA-mjukvara utföra det fysiska klicket i verksamhetssystemen. Denna arkitektur möjliggör automatisering av komplext tjänstearbete, men introducerar samtidigt nya systemrisker som kräver rigorös hantering.
 
-+++ { "page-break": true }
+---
 
 (reducering-av-redundans)=
 ## Reducering av redundans i praktiken
@@ -35,7 +35,7 @@ Inom bedrägeridetektion och penningtvättskontroller skapar regelbaserade syste
 
 I industriella flöden skapas redundans genom schemalagt underhåll där fullt fungerande delar byts ut i onödan. Genom att analysera sensordata kan AI beräkna sannolikheten för maskinhaveri och automatisera arbetsordrar endast när data indikerar en reell risk. Detta är en av de mest vetenskapligt validerade tillämpningarna, förutsatt att infrastrukturen kan hantera datavolymerna i realtid.
 
-+++ { "page-break": true }
+---
 
 (dokumentgranskning-och-avvikelsehantering)=
 ## Dokumentgranskning och avvikelsehantering
@@ -50,6 +50,8 @@ Modellen validerar dokument semantiskt och strukturellt genom att extrahera data
 
 Interaktiv maskininlärning kräver asymmetrisk samverkan mellan algoritm och människa (Amershi et al., 2014). När AI:ns konfidensnivå understiger ett rigoröst fastställt tröskelvärde, eller om kritiska uppgifter saknas, måste systemet omedelbart avbryta exekveringen. Det genererar en specifik flaggning som isolerar bristen och skickar en automatisk begäran om komplettering. Detta förhindrar att osäkra beslut realiseras.
 
+---
+
 (kvalitetssakring-och-systemresiliens)=
 ## Kvalitetssäkring och systemresiliens
 
@@ -63,7 +65,7 @@ Att felsöka ett AI-flöde handlar nästan aldrig om att korrigera traditionell 
 
 AI introducerar nya infrastrukturella sårbarheter. Forskning påvisar att dessa bedömningssystem är extremt mottagliga för antagonistiska attacker, där en aktör medvetet manipulerar indata med osynliga förändringar för att tvinga fram ett felaktigt godkännande (Papernot et al., 2016). Den operationella standarden kräver därför kontinuerliga säkerhetstester (red teaming) där systemet utsätts för syntetiskt manipulerade dokument för att bevisa att avvikelsehanteringen står emot fientliga förhållanden.
 
-+++ { "page-break": true }
+---
 
 (sammanfattning)=
 ## Sammanfattning

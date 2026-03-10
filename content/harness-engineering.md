@@ -24,7 +24,7 @@ LangGraph möjliggör cykliska flöden där applikationen kan exekvera, utvärde
 
 Denna arkitektur är djupt rotad i etablerad grafteori. Istället för att hoppas på att en modell "resonerar rätt" tvingas den att navigera genom ett programmatiskt nätverk av noder och kanter. Varje nod representerar en beräkning, exempelvis en funktion eller ett LLM-anrop, och varje kant utgör logiken som styr flödet av systemets tillstånd vidare.
 
-+++ { "page-break": true }
+---
 
 (kritisk-granskning-av-genomforbarhet)=
 ## En kritisk granskning av genomförbarhet
@@ -49,7 +49,7 @@ Utan strikt, programmatisk typvalidering, exempelvis via Pydantic, mellan grafen
 
 Att implementera komplexa grafflöden är logiskt försvarbart endast när uppgiften bevisligen kräver iterativ, tillståndsberoende problemlösning som absolut inte kan hanteras med standardiserad heuristik, konventionell kod eller linjära pipelines. Arkitekturen bör drivas av nödvändighet, inte av teknikens nyhetsvärde.
 
-+++ { "page-break": true }
+---
 
 (typsakerhet-multimodell-minne)=
 ## Integration av typsäkerhet, multi-modell-nätverk och minnesstrukturer
@@ -84,7 +84,7 @@ Den arkitektoniska realiteten är att stora språkmodeller har tydliga begränsn
 
 Att implementera ett effektivt agentminne handlar därför inte om att skicka in hela historiken i varje nod. Det handlar om extremt selektiv datafiltrering. Grafens state-objekt måste rensas kontinuerligt så att endast den matematiskt och logiskt mest relevanta informationen bevaras inför nästa övergång i tillståndsmaskinen.
 
-+++ { "page-break": true }
+---
 
 (mcp-och-acp)=
 ## Standardiserad kommunikation via MCP och ACP
@@ -105,7 +105,7 @@ ACP, och liknande ramverk som A2A, definierar hur dessa autonoma agenter förhan
 
 Kritisk granskning av distribuerad systemtillförlitlighet: När en autonom process distribueras över flera noder och nätverksprotokoll minskar den övergripande systemtillförlitligheten för varje nytt beroende som läggs till i kedjan. För att denna arkitektur ska vara genomförbar i en produktionsmiljö krävs därför strikta asynkrona köer, rigorösa tidsgränser och circuit breakers. Att enbart addera protokoll gör systemet distribuerat, men det är robust felhantering som gör det autonomt.
 
-+++ { "page-break": true }
+---
 
 (rag-vektordatabaser-och-lora)=
 ## RAG, vektordatabaser och LoRA-adaptrar
@@ -128,7 +128,7 @@ LoRA är därför en nödvändig ingenjörslösning. Istället för att uppdater
 
 Kritisk granskning av genomförbarhet: Valet av rang i en LoRA-adapter är en direkt konflikt mellan uttrycksfullhet och minneskrav. För låg rang fångar inte komplexa domänmönster, medan för hög rang undergräver prestandafördelarna. Försök att kombinera flera adaptrar samtidigt leder dessutom ofta till oförutsägbar degradering eftersom viktmatrisernas riktningar kan motverka varandra.
 
-+++ { "page-break": true }
+---
 
 (kv-cachen-och-uppmarksamhetsmekanismen)=
 ## KV-cachen och uppmärksamhetsmekanismen

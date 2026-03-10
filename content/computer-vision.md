@@ -36,7 +36,7 @@ Ansiktsigenkänning extraherar biometriska landmärken för systematisk korsexam
 
 Metadataboberoende analys där systemet utvinner information direkt ur bildens fysiska attribut. Algoritmer utvärderar skuggkastning, ljusbrytning och topologi för att deducera tid och plats. Vidare kan den specifika kamerasensorn identifieras genom analys av dess unika mikroskopiska brusmönster, Photo Response Non-Uniformity.
 
-+++ { "page-break": true }
+---
 
 (akustisk-analys)=
 ## Akustisk analys via spektrogram
@@ -45,7 +45,7 @@ En etablerad metodik för att applicera bildanalys på ljud är transformationen
 
 Ljudvågor representeras som en tvådimensionell matris där \(x\)-axeln anger tid, \(y\)-axeln frekvens, och intensiteten anger amplitud. Genom att konvertera ljudet till en visuell representation kan standardiserade CV-arkitekturer bearbeta datan. Praktiskt resulterar detta i högpresterande system för röstigenkänning, avvikelsedetektion i industriella maskiner eller klassificering av biologisk akustik, vilket i många fall överträffar traditionell signalbehandling.
 
-+++ { "page-break": true }
+---
 
 (generativ-syntes)=
 ## Från diskriminativ analys till generativ syntes

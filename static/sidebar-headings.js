@@ -2,10 +2,25 @@
   'use strict';
 
   var chapterMap = {
-    'Datorseende och Generativ Syntes': [
-      { title: 'Visuell informationsutvinning', anchor: 'visuell-informationsutvinning' },
-      { title: 'Akustisk analys', anchor: 'akustisk-analys' },
-      { title: 'Generativ syntes', anchor: 'generativ-syntes' }
+    'Om mig': [
+      { title: 'Tankesättet', anchor: 'tankesattet' },
+      { title: 'Varför det spelar roll', anchor: 'varfor-det-spelar-roll' },
+      { title: 'Värderingar om AI', anchor: 'varderingar-om-ai' },
+      { title: 'Teknik och verktyg', anchor: 'teknik-och-verktyg' },
+      { title: 'Vad jag gör idag', anchor: 'vad-jag-gor-idag' }
+    ],
+    'Kompetensprofil': [
+      { title: 'Kärnkompetenser', anchor: 'karnkompetenser' },
+      { title: 'Teknikstack', anchor: 'teknikstack' },
+      { title: 'Professionell passform', anchor: 'professionell-passform' }
+    ],
+    'Ai. pipelines och grafer': [
+      { title: 'Harness engineering och pipelines', anchor: 'harness-engineering-och-pipelines' },
+      { title: 'Kritisk granskning av genomförbarhet', anchor: 'kritisk-granskning-av-genomforbarhet' },
+      { title: 'Typsäkerhet, modeller och minne', anchor: 'typsakerhet-multimodell-minne' },
+      { title: 'MCP och ACP', anchor: 'mcp-och-acp' },
+      { title: 'RAG och LoRA', anchor: 'rag-vektordatabaser-och-lora' },
+      { title: 'KV-cachen', anchor: 'kv-cachen-och-uppmarksamhetsmekanismen' }
     ],
     'Automation': [
       { title: 'Deterministisk och probabilistisk automation', anchor: 'fran-deterministisk-till-probabilistisk' },
@@ -14,16 +29,10 @@
       { title: 'Kvalitetssäkring', anchor: 'kvalitetssakring-och-systemresiliens' },
       { title: 'Sammanfattning', anchor: 'sammanfattning' }
     ],
-    'Ai. pipelines och grafer': [
-      { title: 'Pipelines', anchor: 'harness-engineering-och-pipelines' },
-      { title: 'Genomförbarhet', anchor: 'kritisk-granskning-av-genomforbarhet' },
-      { title: 'Typsäkerhet och minne', anchor: 'typsakerhet-multimodell-minne' },
-      { title: 'MCP och ACP', anchor: 'mcp-och-acp' },
-      { title: 'RAG och LoRA', anchor: 'rag-vektordatabaser-och-lora' },
-      { title: 'KV-cachen', anchor: 'kv-cachen-och-uppmarksamhetsmekanismen' }
-    ],
-    'Om mig': [
-      { title: 'Kompetensprofil', href: './kompetensprofil' }
+    'Datorseende och Generativ Syntes': [
+      { title: 'Visuell informationsutvinning', anchor: 'visuell-informationsutvinning' },
+      { title: 'Akustisk analys', anchor: 'akustisk-analys' },
+      { title: 'Generativ syntes', anchor: 'generativ-syntes' }
     ]
   };
 
@@ -64,15 +73,9 @@
       var link = document.createElement('a');
       link.className = 'appendix-page-entry__link';
       link.textContent = chapter.title;
-      link.href = chapter.href
-        ? new URL(chapter.href, baseHref.replace(/#.*$/, '')).href
-        : baseHref.replace(/#.*$/, '') + '#' + chapter.anchor;
+      link.href = baseHref.replace(/#.*$/, '') + '#' + chapter.anchor;
 
-      if (chapter.anchor && window.location.hash === '#' + chapter.anchor) {
-        link.classList.add('is-active');
-      }
-
-      if (chapter.href && isCurrentPath(chapter.href)) {
+      if (window.location.hash === '#' + chapter.anchor && isCurrentPath(baseHref)) {
         link.classList.add('is-active');
       }
 
@@ -95,7 +98,7 @@
     var pageLinks = Array.prototype.slice.call(toc.querySelectorAll('a[href]')).filter(function (link) {
       return !link.getAttribute('href').includes('#');
     }).filter(function (link) {
-      return link.textContent.trim() !== 'Kompetensprofil';
+      return link.textContent.trim() !== 'Appendix';
     });
 
     if (!pageLinks.length) {
@@ -105,13 +108,11 @@
     var seen = {};
     var runtimeNav = document.createElement('div');
     runtimeNav.className = 'sidebar-runtime-nav';
-    var aboutHref = '';
 
-    pageLinks.forEach(function (link, pageIndex) {
+    pageLinks.forEach(function (link) {
       var href = link.href;
       var title = link.textContent.trim();
       var key = normalizePath(href);
-      var pageCode = appendixCode(pageIndex);
 
       if (!title || seen[key]) {
         return;
@@ -119,10 +120,8 @@
 
       seen[key] = true;
 
-      if (title === 'Appendix') {
-        aboutHref = href;
-      }
-
+      var visibleIndex = Object.keys(seen).length - 1;
+      var pageCode = appendixCode(visibleIndex);
       var section = document.createElement('section');
       section.className = 'appendix-entry';
 
@@ -157,25 +156,17 @@
     });
 
     var header = document.createElement('div');
-    header.className = 'appendix-contact';
+    header.className = 'appendix-contact sidebar-runtime-contact';
 
     var footerTitle = document.createElement('div');
     footerTitle.className = 'appendix-contact__eyebrow';
-    footerTitle.textContent = 'Appendix';
+    footerTitle.textContent = 'Navigering';
     header.appendChild(footerTitle);
 
     var footerText = document.createElement('p');
     footerText.className = 'appendix-contact__text';
-    footerText.textContent = 'Snabbnavigering mellan sidor och kapitel.';
+    footerText.textContent = 'Sidstruktur och sektionsreferenser.';
     header.appendChild(footerText);
-
-    if (aboutHref) {
-      var footerLink = document.createElement('a');
-      footerLink.className = 'appendix-contact__link';
-      footerLink.href = aboutHref;
-      footerLink.textContent = 'Till Appendix';
-      header.appendChild(footerLink);
-    }
 
     toc.innerHTML = '';
     toc.appendChild(header);
@@ -202,11 +193,13 @@
 
     function closeSidebar() {
       document.body.classList.remove('sidebar-open');
+      document.body.classList.remove('sidebar-open-lock');
       menuButton.setAttribute('aria-expanded', 'false');
     }
 
     function toggleSidebar() {
       var isOpen = document.body.classList.toggle('sidebar-open');
+      document.body.classList.toggle('sidebar-open-lock', isOpen);
       menuButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     }
 

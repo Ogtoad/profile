@@ -11,11 +11,11 @@ project:
       title: Om mig
     - file: content/kompetensprofil.md
       title: Kompetensprofil
-    - file: Harness-Engineering.md
+    - file: content/harness-engineering.md
       title: Ai. pipelines och grafer
-    - file: automatisera-arbetsflöden.md
+    - file: content/automatisera-arbetsfloden.md
       title: Automation
-    - file: computer-vision.md
+    - file: content/computer-vision.md
       title: Datorseende och Generativ Syntes
 
 site:
