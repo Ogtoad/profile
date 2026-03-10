@@ -45,4 +45,4 @@ Problem utan uppenbara lösningar är det som allra främst driver mig. Jag triv
 
 ---
 
-Om detta ligger nära det du själv vill bygga eller undersöka kan du fortsätta till [Kontakt](../kontakt/index.md).
+Om detta ligger nära det du själv vill bygga eller undersöka kan du fortsätta till

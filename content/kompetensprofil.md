@@ -65,6 +65,6 @@ Det här är en komprimerad översikt av min praktiska profil: vilka typer av pr
   </div>
   <div class="skills-resume-passform">
     <h2>Professionell passform</h2>
-    <p>Jag passar bäst i roller där forskning, verktygsutveckling, arkitektur och kreativ riktning möts: exempelvis som research engineer, creative technologist, prototypare eller teknisk designer av narrativa och intelligenta system.</p>
+    <p>Jag passar bäst i roller där forskning, verktygsutveckling, arkitektur möter kreativ tillämpning för att lösa problem</p>
   </div>
 </div>

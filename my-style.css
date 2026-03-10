@@ -310,11 +310,12 @@ body::after {
 
 .appendix-page-entry__code {
   font-family: var(--font-ui) !important;
-  font-size: 0.64rem !important;
+  font-size: 0.56rem !important;
   letter-spacing: 0.16em !important;
   text-transform: uppercase !important;
-  color: rgba(176, 171, 162, 0.48) !important;
-  padding-top: 0.28rem !important;
+  font-weight: 500 !important;
+  color: rgba(176, 171, 162, 0.4) !important;
+  padding-top: 0.24rem !important;
 }
 
 .appendix-page-entry__link {
@@ -323,8 +324,10 @@ body::after {
   color: rgba(199, 193, 184, 0.68) !important;
   text-decoration: none !important;
   font-family: var(--font-body) !important;
-  font-size: 0.84rem !important;
+  font-size: 0.76rem !important;
+  font-weight: 400 !important;
   line-height: 1.32 !important;
+  opacity: 0.82 !important;
 }
 
 .appendix-page-entry__link:hover,
