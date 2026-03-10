@@ -23,6 +23,11 @@
       { title: 'KV-cachen', anchor: 'kv-cachen-och-uppmarksamhetsmekanismen' }
     ],
     'Om mig': [
+      { title: 'Tankesättet', anchor: 'tankes-ttet' },
+      { title: 'Varför det spelar roll', anchor: 'varf-r-det-spelar-roll' },
+      { title: 'Värderingar om AI', anchor: 'v-rderingar-om-ai-och-dess-plats-i-samh-llet' },
+      { title: 'Teknik och verktyg', anchor: 'teknik-verktyg' },
+      { title: 'Vad jag gör idag', anchor: 'vad-jag-g-r-idag' },
       { title: 'Kompetensprofil', href: './kompetensprofil' }
     ]
   };
