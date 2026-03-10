@@ -7,16 +7,16 @@ project:
   toc:
     - file: content/index.md
       title: Appendix
+    - file: content/om-mig.md
+      title: Om mig
+    - file: content/kompetensprofil.md
+      title: Kompetensprofil
     - file: Harness-Engineering.md
       title: Ai. pipelines och grafer
     - file: automatisera-arbetsflöden.md
       title: Automation
     - file: computer-vision.md
       title: Datorseende och Generativ Syntes
-    - file: content/om-mig.md
-      title: Om mig
-    - file: content/kompetensprofil.md
-      title: Kompetensprofil
 
 site:
   template: book-theme
