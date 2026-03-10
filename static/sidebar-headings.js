@@ -7,22 +7,29 @@
       { title: 'Akustisk analys', anchor: 'akustisk-analys' },
       { title: 'Generativ syntes', anchor: 'generativ-syntes' }
     ],
-    'Kognitiv Automatisering': [
+    'Automation': [
       { title: 'Deterministisk och probabilistisk automation', anchor: 'fran-deterministisk-till-probabilistisk' },
       { title: 'Reducering av redundans', anchor: 'reducering-av-redundans' },
       { title: 'Dokumentgranskning', anchor: 'dokumentgranskning-och-avvikelsehantering' },
       { title: 'Kvalitetssäkring', anchor: 'kvalitetssakring-och-systemresiliens' },
       { title: 'Sammanfattning', anchor: 'sammanfattning' }
     ],
-    'Harness Engineering': [
+    'Ai. pipelines och grafer': [
       { title: 'Pipelines', anchor: 'harness-engineering-och-pipelines' },
       { title: 'Genomförbarhet', anchor: 'kritisk-granskning-av-genomforbarhet' },
       { title: 'Typsäkerhet och minne', anchor: 'typsakerhet-multimodell-minne' },
       { title: 'MCP och ACP', anchor: 'mcp-och-acp' },
       { title: 'RAG och LoRA', anchor: 'rag-vektordatabaser-och-lora' },
       { title: 'KV-cachen', anchor: 'kv-cachen-och-uppmarksamhetsmekanismen' }
+    ],
+    'Om mig': [
+      { title: 'Kompetensprofil', href: './kompetensprofil' }
     ]
   };
+
+  function appendixCode(index) {
+    return String.fromCharCode(65 + index);
+  }
 
   function normalizePath(href) {
     try {
@@ -38,27 +45,38 @@
     return normalizePath(window.location.href) === normalizePath(path);
   }
 
-  function buildChapterList(baseHref, chapters) {
+  function buildChapterList(baseHref, chapters, sectionCode) {
     if (!chapters || !chapters.length) {
       return null;
     }
 
-    var list = document.createElement('ul');
-    list.className = 'sidebar-page-headings';
+    var list = document.createElement('ol');
+    list.className = 'appendix-page-entries';
 
-    chapters.forEach(function (chapter) {
+    chapters.forEach(function (chapter, chapterIndex) {
       var item = document.createElement('li');
-      item.className = 'sidebar-page-headings__item';
+      item.className = 'appendix-page-entry';
+
+      var code = document.createElement('span');
+      code.className = 'appendix-page-entry__code';
+      code.textContent = sectionCode + '.' + (chapterIndex + 1);
 
       var link = document.createElement('a');
-      link.className = 'sidebar-page-headings__link is-h3';
+      link.className = 'appendix-page-entry__link';
       link.textContent = chapter.title;
-      link.href = baseHref.replace(/#.*$/, '') + '#' + chapter.anchor;
+      link.href = chapter.href
+        ? new URL(chapter.href, baseHref.replace(/#.*$/, '')).href
+        : baseHref.replace(/#.*$/, '') + '#' + chapter.anchor;
 
-      if (window.location.hash === '#' + chapter.anchor) {
+      if (chapter.anchor && window.location.hash === '#' + chapter.anchor) {
         link.classList.add('is-active');
       }
 
+      if (chapter.href && isCurrentPath(chapter.href)) {
+        link.classList.add('is-active');
+      }
+
+      item.appendChild(code);
       item.appendChild(link);
       list.appendChild(item);
     });
@@ -76,6 +94,8 @@
 
     var pageLinks = Array.prototype.slice.call(toc.querySelectorAll('a[href]')).filter(function (link) {
       return !link.getAttribute('href').includes('#');
+    }).filter(function (link) {
+      return link.textContent.trim() !== 'Kompetensprofil';
     });
 
     if (!pageLinks.length) {
@@ -87,10 +107,11 @@
     runtimeNav.className = 'sidebar-runtime-nav';
     var aboutHref = '';
 
-    pageLinks.forEach(function (link) {
+    pageLinks.forEach(function (link, pageIndex) {
       var href = link.href;
       var title = link.textContent.trim();
       var key = normalizePath(href);
+      var pageCode = appendixCode(pageIndex);
 
       if (!title || seen[key]) {
         return;
@@ -102,11 +123,18 @@
         aboutHref = href;
       }
 
-      var section = document.createElement('div');
-      section.className = 'sidebar-runtime-section';
+      var section = document.createElement('section');
+      section.className = 'appendix-entry';
+
+      var heading = document.createElement('div');
+      heading.className = 'appendix-entry__heading';
+
+      var code = document.createElement('div');
+      code.className = 'appendix-entry__code';
+      code.textContent = pageCode;
 
       var pageLink = document.createElement('a');
-      pageLink.className = 'sidebar-page-link';
+      pageLink.className = 'appendix-entry__link';
       pageLink.href = href;
       pageLink.textContent = title;
 
@@ -115,9 +143,11 @@
         pageLink.setAttribute('aria-current', 'page');
       }
 
-      section.appendChild(pageLink);
+      heading.appendChild(code);
+      heading.appendChild(pageLink);
+      section.appendChild(heading);
 
-      var chapterList = buildChapterList(href, chapterMap[title]);
+      var chapterList = buildChapterList(href, chapterMap[title], pageCode);
       if (chapterList) {
         section.appendChild(chapterList);
       }
@@ -125,27 +155,29 @@
       runtimeNav.appendChild(section);
     });
 
-    var footer = document.createElement('div');
-    footer.className = 'sidebar-runtime-contact';
+    var header = document.createElement('div');
+    header.className = 'appendix-contact';
 
     var footerTitle = document.createElement('div');
-    footerTitle.className = 'sidebar-runtime-contact__title';
-    footerTitle.textContent = 'Kontakt';
-    footer.appendChild(footerTitle);
+    footerTitle.className = 'appendix-contact__eyebrow';
+    footerTitle.textContent = 'Appendix';
+    header.appendChild(footerTitle);
 
-    // footer.appendChild(footerText);
+    var footerText = document.createElement('p');
+    footerText.className = 'appendix-contact__text';
+    footerText.textContent = 'Snabbnavigering mellan sidor och kapitel.';
+    header.appendChild(footerText);
 
     if (aboutHref) {
       var footerLink = document.createElement('a');
-      footerLink.className = 'sidebar-runtime-contact__link';
+      footerLink.className = 'appendix-contact__link';
       footerLink.href = aboutHref;
-      footerLink.textContent = 'Mer i Om mig';
-      footer.appendChild(footerLink);
+      footerLink.textContent = 'Till Om mig';
+      header.appendChild(footerLink);
     }
 
-    runtimeNav.appendChild(footer);
-
     toc.innerHTML = '';
+    toc.appendChild(header);
     toc.appendChild(runtimeNav);
   }
 
