@@ -2,10 +2,6 @@
   'use strict';
 
   var chapterMap = {
-    'Appendix': [
-      { title: 'Om mig', href: './om-mig' },
-      { title: 'Kompetensprofil', href: './kompetensprofil' }
-    ],
     'Datorseende och Generativ Syntes': [
       { title: 'Visuell informationsutvinning', anchor: 'visuell-informationsutvinning' },
       { title: 'Akustisk analys', anchor: 'akustisk-analys' },
@@ -25,6 +21,9 @@
       { title: 'MCP och ACP', anchor: 'mcp-och-acp' },
       { title: 'RAG och LoRA', anchor: 'rag-vektordatabaser-och-lora' },
       { title: 'KV-cachen', anchor: 'kv-cachen-och-uppmarksamhetsmekanismen' }
+    ],
+    'Om mig': [
+      { title: 'Kompetensprofil', href: './kompetensprofil' }
     ]
   };
 
@@ -96,8 +95,7 @@
     var pageLinks = Array.prototype.slice.call(toc.querySelectorAll('a[href]')).filter(function (link) {
       return !link.getAttribute('href').includes('#');
     }).filter(function (link) {
-      var title = link.textContent.trim();
-      return title !== 'Kompetensprofil' && title !== 'Om mig';
+      return link.textContent.trim() !== 'Kompetensprofil';
     });
 
     if (!pageLinks.length) {
