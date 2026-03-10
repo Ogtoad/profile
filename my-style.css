@@ -1439,6 +1439,45 @@ table td {
     width: min(90vw, 300px) !important;
   }
 
+  .appendix-entry__heading,
+  .appendix-page-entry {
+    grid-template-columns: 2.15rem minmax(0, 1fr) !important;
+    gap: 0.28rem !important;
+  }
+
+  .appendix-entry__code {
+    font-size: 0.58rem !important;
+    padding-top: 0.28rem !important;
+  }
+
+  .appendix-entry__link {
+    font-size: 0.92rem !important;
+    line-height: 1.24 !important;
+  }
+
+  .appendix-page-entry__code {
+    font-size: 0.5rem !important;
+    padding-top: 0.18rem !important;
+  }
+
+  .appendix-page-entry__link {
+    font-size: 0.71rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .appendix-overview h2 {
+    margin-bottom: 0.35rem !important;
+  }
+
+  .appendix-overview p,
+  .appendix-overview ul {
+    margin-bottom: 1rem !important;
+  }
+
+  .skills-overview__columns {
+    column-gap: 0 !important;
+  }
+
   .katex-display {
     font-size: 1em !important;
   }
