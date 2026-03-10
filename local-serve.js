@@ -16,7 +16,7 @@ const http = require('http');
 const CONFIG = {
   staticDir: path.join(__dirname, 'static'),
   port: 8080,
-  assets: ['tsparticles.js', 'tsparticles.css', 'sidebar-headings.js', 'site-runtime.js'],
+  assets: ['tsparticles.js', 'tsparticles.css', 'sidebar-headings.js', 'article-sections.js', 'site-runtime.js'],
   rootAssets: ['logo.png', 'favicon.svg'],
   containerInjection: '\n<div id="tsparticles"></div>\n',
   mimeTypes: {

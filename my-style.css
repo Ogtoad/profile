@@ -1519,6 +1519,7 @@ article > div {
 .myst-fm-block {
   margin-left: 0 !important;
   margin-right: 0 !important;
+  text-align: center !important;
 }
 
 .myst-fm-block-title,
@@ -1537,6 +1538,7 @@ h1 {
   font-size: clamp(1.72rem, 2.4vw, 2.2rem) !important;
   margin-top: 1.2rem !important;
   margin-bottom: 1.1rem !important;
+  text-align: center !important;
 }
 
 h2,
@@ -1546,6 +1548,7 @@ h2,
   line-height: 1.3 !important;
   margin-top: 2.8rem !important;
   margin-bottom: 0.6rem !important;
+  text-align: center !important;
 }
 
 h3 {
@@ -1554,12 +1557,14 @@ h3 {
   line-height: 1.45 !important;
   margin-top: 1.5rem !important;
   margin-bottom: 0.2rem !important;
+  text-align: center !important;
 }
 
 h4 {
   font-size: 0.94rem !important;
   margin-top: 1.15rem !important;
   margin-bottom: 0.18rem !important;
+  text-align: center !important;
 }
 
 article p,
@@ -1703,35 +1708,85 @@ body.sidebar-open-lock {
   }
 }
 
+.article-section-block {
+  max-width: none !important;
+  width: 100% !important;
+  margin: 2.5rem 0 0 !important;
+  padding-top: 1.5rem !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.article-section-block:first-of-type {
+  margin-top: 2.1rem !important;
+}
+
+.article-section-heading {
+  margin-top: 0 !important;
+  margin-bottom: 1rem !important;
+  text-align: center !important;
+}
+
+.article-section-body {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 0.95rem 2.4rem !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.article-section-body > * {
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.article-section-body > h3,
+.article-section-body > h4 {
+  grid-column: 1 / -1 !important;
+  margin-top: 1rem !important;
+  padding-top: 0.8rem !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+  text-align: center !important;
+}
+
+.article-section-body > h3 + p,
+.article-section-body > h3 + ul,
+.article-section-body > h3 + ol,
+.article-section-body > h4 + p,
+.article-section-body > h4 + ul,
+.article-section-body > h4 + ol {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  border-left: none !important;
+}
+
+.article-section-body > ul,
+.article-section-body > ol,
+.article-section-body > blockquote,
+.article-section-body > pre,
+.article-section-body > table,
+.article-section-body > figure,
+.article-section-body > .myst-grid,
+.article-section-body > .myst-card,
+.article-section-body > .myst-admonition,
+.article-section-body > details {
+  grid-column: 1 / -1 !important;
+}
+
 @media (min-width: 1280px) {
-  article.article-grid.subgrid-gap.col-screen.article.content:not(:has(.appendix-directory)) {
-    column-count: 2 !important;
-    column-gap: 4.5rem !important;
-    column-fill: balance !important;
-    max-width: 90rem !important;
+  .article-section-body {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1rem 3.1rem !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .article-section-block {
+    margin-top: 2rem !important;
+    padding-top: 1.2rem !important;
   }
 
-  article.article-grid.subgrid-gap.col-screen.article.content:not(:has(.appendix-directory)) > .hidden,
-  article.article-grid.subgrid-gap.col-screen.article.content:not(:has(.appendix-directory)) > #skip-to-article,
-  article.article-grid.subgrid-gap.col-screen.article.content:not(:has(.appendix-directory)) > .myst-fm-block,
-  article.article-grid.subgrid-gap.col-screen.article.content:not(:has(.appendix-directory)) > h1,
-  article.article-grid.subgrid-gap.col-screen.article.content:not(:has(.appendix-directory)) > h2,
-  article.article-grid.subgrid-gap.col-screen.article.content:not(:has(.appendix-directory)) > .myst-backmatter-parts,
-  article.article-grid.subgrid-gap.col-screen.article.content:not(:has(.appendix-directory)) > .myst-footer-links {
-    column-span: all !important;
-  }
-
-  article.article-grid.subgrid-gap.col-screen.article.content:not(:has(.appendix-directory)) > h2,
-  article.article-grid.subgrid-gap.col-screen.article.content:not(:has(.appendix-directory)) > h3,
-  article.article-grid.subgrid-gap.col-screen.article.content:not(:has(.appendix-directory)) > h4,
-  article.article-grid.subgrid-gap.col-screen.article.content:not(:has(.appendix-directory)) > ul,
-  article.article-grid.subgrid-gap.col-screen.article.content:not(:has(.appendix-directory)) > ol,
-  article.article-grid.subgrid-gap.col-screen.article.content:not(:has(.appendix-directory)) > p,
-  article.article-grid.subgrid-gap.col-screen.article.content:not(:has(.appendix-directory)) > blockquote {
-    break-inside: avoid-column !important;
-  }
-
-  article.article-grid.subgrid-gap.col-screen.article.content:not(:has(.appendix-directory)) > h2 {
-    margin-top: 2.2rem !important;
+  .article-section-heading {
+    margin-bottom: 0.8rem !important;
   }
 }

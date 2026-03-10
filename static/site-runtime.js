@@ -151,6 +151,9 @@
           return loadScriptOnce(buildUrl('/sidebar-headings.js'));
         })
         .then(function () {
+          return loadScriptOnce(buildUrl('/article-sections.js'));
+        })
+        .then(function () {
           logInfo('All runtime enhancements loaded successfully', {
             basePath: window.__PROPHILE_BASE_PATH__ || '/',
             pathname: window.location.pathname
