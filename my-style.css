@@ -951,6 +951,10 @@ hr {
   border-color: rgba(255, 255, 255, 0.09) !important;
 }
 
+.appendix-entry.is-current .appendix-entry__code {
+  opacity: 0 !important;
+}
+
 .appendix-contact {
   padding: 0 0 1rem !important;
   margin-bottom: 1rem !important;
