@@ -986,6 +986,52 @@ hr {
   margin: 2rem 0 2.4rem;
 }
 
+.appendix-overview {
+  column-count: 2;
+  column-gap: 1.4rem;
+  margin: 2rem 0 2.4rem;
+}
+
+.appendix-overview > * {
+  break-inside: avoid;
+}
+
+.appendix-overview h2,
+.appendix-overview p,
+.appendix-overview ul,
+.appendix-overview li {
+  break-inside: avoid;
+}
+
+.appendix-overview h2,
+.appendix-overview ul {
+  padding: 1.25rem 1.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+}
+
+.appendix-overview h2 {
+  margin-top: 0 !important;
+  margin-bottom: 0.6rem !important;
+}
+
+.appendix-overview p {
+  margin: 0 0 1.2rem !important;
+  padding: 0 1.35rem 1.25rem !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.appendix-overview ul {
+  margin: 0 0 1.2rem !important;
+  padding-left: 2.35rem !important;
+}
+
+.appendix-overview li {
+  margin-bottom: 0.42rem !important;
+}
+
 .skills-overview__columns {
   column-count: 2;
   column-gap: 1.4rem;
@@ -1361,6 +1407,12 @@ table td {
   .skills-overview {
     margin: 1.5rem 0 2rem;
     gap: 1rem;
+  }
+
+  .appendix-overview {
+    column-count: 1;
+    column-gap: 0;
+    margin: 1.5rem 0 2rem;
   }
 
   .skills-overview__columns {

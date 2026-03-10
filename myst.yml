@@ -6,7 +6,7 @@ project:
   description: AI-konsult med fokus på tillämpad matematik, systemarkitektur och konkret värdeskapande.
   toc:
     - file: content/index.md
-      title: Hem
+      title: Appendix
     - file: Harness-Engineering.md
       title: Ai. pipelines och grafer
     - file: automatisera-arbetsflöden.md
