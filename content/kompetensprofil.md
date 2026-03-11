@@ -6,62 +6,61 @@ description: En kondenserad överblick av Philip Prstojevics kompetenser och ver
 
 # Kompetensprofil
 
-Det här är en komprimerad översikt av min praktiska profil: vilka typer av problem jag arbetar med, vilka system jag bygger och vilken teknikstack jag rör mig i när teori behöver omsättas till fungerande produkter, prototyper och verktygsflöden.
+En koncis översikt av mina kompetensområden, arbetssätt och verktyg inom tillämpad AI, systemutveckling och teknisk problemlösning.
 
 ---
 
+(karnkompetenser)=
+## Kärnkompetenser
 
-### Tillämpad AI och automation
-- Design av AI-drivna arbetsflöden för att reducera redundans och frigöra tid i verksamheter.
-- Harness engineering, pipeline-arkitektur och agentflöden med fokus på determinism, felhantering och genomförbarhet.
-- RAG, embeddings, vektorsökning, strukturerade utdata och selektiv minneshantering för kunskapsintensiva system.
-- Probabilistisk automatisering, dokumentgranskning, avvikelsehantering och människa-i-loopen-design.
+### AI-lösningar och automation
+- Design och implementation av AI-stödda arbetsflöden för att automatisera repetitiva processer.
+- Harness engineering, pipeline-arkitektur och agentflöden med fokus på kontroll, felhantering och robusthet.
+- RAG, embeddings, strukturerade utdata och minneshantering för kunskapsintensiva system.
+- Dokumentgranskning, avvikelsehantering och human-in-the-loop-design i affärskritiska flöden.
 
-### Analys, perception och informationsutvinning
-- Computer vision för klassificering, segmentering, spårning, OCR, biometrisk analys och forensisk bildtolkning.
-- Akustisk analys via spektrogram för röst, maskinljud och biologisk signalering.
-- NLP med intresse för språkmodeller, semantiska representationer, encoding-decoding och logiskt resonemang.
-- Digital forensik: metadataanalys, filåterställning, imaging och nätverksdiagnostik.
+### Analys och informationsutvinning
+- NLP och språkmodeller för klassificering, extraktion, semantisk sökning och resonemangsnära system.
+- Computer vision för OCR, klassificering, segmentering, spårning och visuell analys.
+- Akustisk analys via spektrogram för röst, maskinljud och annan signalbaserad data.
+- Digital forensik, metadataanalys och teknisk diagnostik av filer, system och nätverk.
 
-### Arbetssätt och profil
-- Tvärvetenskaplig problemlösning som binder samman matematik, lingvistik, systemarkitektur, design och forskning.
-- R&D-orienterat arbetssätt med styrka i edge-cases, prototyper och problem utan färdig formulering.
-- Förmåga att översätta komplex teori till tydliga artefakter, fungerande system och begripliga gränssnitt.
-- Kombinerar utveckling, kreativ riktning, teknisk analys och konceptuell kommunikation.
+### Systemarkitektur och leverans
+- Backend- och integrationsdesign för system där data, modeller och gränssnitt behöver samverka.
+- Tvärvetenskaplig problemlösning som kopplar samman forskning, teknik, design och användbarhet.
+- Prototyping och R&D-arbete i problemområden med hög osäkerhet eller många edge cases.
+- Förmåga att omsätta komplex teori till fungerande produkter, verktyg och begripliga gränssnitt.
 
 ---
 
 (teknikstack)=
 ## Teknikstack
 
-
-
 ### Språk och ramverk
-- Python med Django, Flask, FastAPI, pandas, numpy och matplotlib.
-- JavaScript/TypeScript med Node.js, React, Electron, Bun och HTMX.
-- SQL och relationsmodellering, inklusive many-to-many-strukturer och dataintegration.
+- Python: FastAPI, Django, Flask, pandas, numpy, matplotlib.
+- JavaScript/TypeScript: Node.js, Bun, HTMX, React, Electron.
+- SQL och relationsmodellering för datalager, integration och applikationslogik.
 
 ### AI, data och integrationslager
 - LangGraph, Pydantic, structured outputs, multi-modell-orkestrering och agentminne.
-- RAG-pipelines, vektordatabaser, embeddings, LoRA-adaptrar och inferensnära optimering.
+- RAG-pipelines, vektordatabaser, embeddings och LoRA-adaptrar.
+- API-integration, backend-tjänster och fullstack-koppling mellan datakällor, modeller och UI.
 - Web crawling och scraping med requests, BeautifulSoup och Scrapy.
-- API-analys, backend-tjänster och fullstack-integration mellan datakällor, modeller och gränssnitt.
 
 ### Drift, test och miljöer
-- Git, pytest, Jest och Postman för testning, iteration och validering.
-- Debian/Linux, ssh, iptables, OpenWRT och Windows Server med Active Directory.
-- Port- och nätverksdiagnostik, infrastrukturell felsökning och specialiserade verktygsflöden.
+- Git, pytest, Jest och Postman för testning, validering och iteration.
+- Debian/Linux, SSH, iptables, OpenWRT och Windows Server med Active Directory.
+- Nätverksdiagnostik, infrastrukturell felsökning och praktisk drift av tekniska miljöer.
 
 ### Närliggande domäner
 - Generativ syntes för bild, ljud och syntetisk träningsdata.
-- Grafisk design och UI-arbete där informationsarkitektur och estetik stödjer användbarhet.
-- Experimentella prototyper inom autonomi, integritet och hjärn-datornära konceptuella system.
+- Grafisk design och UI-arbete där informationsarkitektur stödjer tydlighet och användbarhet.
+- Experimentella prototyper inom autonomi, integritet och konceptuella system.
 
 ---
 
 (professionell-passform)=
-## Professionell passform
-
-Jag passar bäst i roller där forskning, verktygsutveckling och arkitektur möter kreativ tillämpning för att lösa problem.
+# Professionell passform
+  Edgecases, Research & Development. Uppdrag som kräver både teknisk bredd och förmåga att fördjupa sig snabbt i nya domäner. Miljöer där prototyper, forskning och praktisk leverans behöver drivas i samma arbete.
 
 ---

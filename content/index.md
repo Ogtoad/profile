@@ -8,7 +8,7 @@ Detta appendix fungerar som en sammanhållen orientering över webbplatsens sido
 
 :::{div}
 :class: appendix-directory
-## A. [Om mig](/om-mig)
+### A. [Om mig](/om-mig)
 
 Profil, arbetssätt, värderingar och teknisk grund.
 
@@ -20,7 +20,7 @@ Profil, arbetssätt, värderingar och teknisk grund.
 
 ---
 
-## B. [Kompetensprofil](/kompetensprofil)
+### B. [Kompetensprofil](/kompetensprofil)
 
 En kondenserad men praktisk översikt av kompetenser, systemtänkande, teknikstack och professionell passform.
 
@@ -30,7 +30,7 @@ En kondenserad men praktisk översikt av kompetenser, systemtänkande, tekniksta
 
 ---
 
-## C. [Ai. pipelines och grafer](/harness-engineering)
+### C. [Ai. pipelines och grafer](/harness-engineering)
 
 Arkitektur för agentflöden, harness engineering och distribuerade AI-system.
 
@@ -41,7 +41,7 @@ Arkitektur för agentflöden, harness engineering och distribuerade AI-system.
 
 ---
 
-## D. [Automation](/automatisera-arbetsfloden)
+### D. [Automation](/automatisera-arbetsfloden)
 
 Probabilistisk automation, dokumentgranskning, avvikelsehantering och systemresiliens.
 
@@ -52,7 +52,7 @@ Probabilistisk automation, dokumentgranskning, avvikelsehantering och systemresi
 
 ---
 
-## E. [Datorseende och Generativ Syntes](/computer-vision)
+### E. [Datorseende och Generativ Syntes](/computer-vision)
 
 Visuell informationsutvinning, akustisk analys och generativa modeller för bild, ljud och syntetisk data.
 

@@ -1,7 +1,6 @@
-# Deploy MyST site to GitHub Pages
-# Uses post-build JS injection for tsParticles background
+# Deploy static HTML site to GitHub Pages
 
-name: Deploy MyST Site to GitHub Pages
+name: Deploy Static Site to GitHub Pages
 
 on:
   push:
@@ -31,11 +30,8 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install MyST
-        run: npm install -g mystmd
-
-      - name: Build MyST Site
-        run: node local-serve.js --target html --build-only --base-url "/${{ github.event.repository.name }}"
+      - name: Build static site
+        run: node local-serve.js --target html --build-only --base-url "/${{ github.event.repository.name }}" --site-origin "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

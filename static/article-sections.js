@@ -29,6 +29,13 @@
     return { section: section, body: body };
   }
 
+  function buildSubsectionPanel(heading) {
+    var panel = document.createElement('div');
+    panel.className = 'article-subsection-panel';
+    panel.appendChild(heading);
+    return panel;
+  }
+
   function enhanceArticleSections() {
     var article = document.querySelector('article.article.content');
 
@@ -38,17 +45,20 @@
 
     var children = Array.prototype.slice.call(article.children);
     var currentSection = null;
+    var currentSubsection = null;
 
     children.forEach(function (node) {
       var tagName = node.tagName ? node.tagName.toUpperCase() : '';
 
       if (isTerminalNode(node)) {
         currentSection = null;
+        currentSubsection = null;
         return;
       }
 
       if (tagName === 'H2') {
         currentSection = buildSectionBlock(node);
+        currentSubsection = null;
         article.insertBefore(currentSection.section, node);
         return;
       }
@@ -59,6 +69,17 @@
 
       if (tagName === 'HR') {
         node.remove();
+        return;
+      }
+
+      if (tagName === 'H3' || tagName === 'H4') {
+        currentSubsection = buildSubsectionPanel(node);
+        currentSection.body.appendChild(currentSubsection);
+        return;
+      }
+
+      if (currentSubsection) {
+        currentSubsection.appendChild(node);
         return;
       }
 

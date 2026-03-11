@@ -17,7 +17,6 @@ Jag bygger intelligenta system som automatiserar komplexa arbetsflöden – inte
 
 
 Det finns en utbredd missuppfattning om att kompetens antingen har djup eller bredd, och att det ena utesluter det andra. AI är inte en isolerad ingenjörsdisciplin – det är en syntes av lingvistik, biologi, matematik och mänskligt tänkande. Jag har aldrig respekterat gränsen mellan discipliner, och det är just det som gör mig effektiv.
-
 Jag ägnar mycket tid åt att följa vetenskapliga framsteg från områden som vid första anblick är brett skilda. Inget av dessa intressen har varit sidospår – de har alltid stått i linje med större frågor som delas av alla domäner, precis som fallet är med AI.
 
 ---
