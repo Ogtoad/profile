@@ -67,8 +67,12 @@
     return { group: group, contentBlock: contentBlock };
   }
 
+  function isContentGroupHeading(tagName) {
+    return tagName === 'H3' || tagName === 'H4';
+  }
+
   function isGroupedHeading(tagName) {
-    return tagName === 'H4' || tagName === 'H5' || tagName === 'H6';
+    return tagName === 'H5' || tagName === 'H6';
   }
 
   function normalizeHeading(heading, additionalClass) {
@@ -174,7 +178,7 @@
         return;
       }
 
-      if (tagName === 'H3') {
+      if (isContentGroupHeading(tagName)) {
         currentSubsection = buildContentGroup(ensureSectionContent(currentSection), node);
         return;
       }

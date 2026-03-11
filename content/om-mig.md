@@ -8,7 +8,7 @@ description: AI-konsult med fokus på tillämpad matematik, systemarkitektur och
 
 
 
-Jag bygger intelligenta system som automatiserar komplexa arbetsflöden – inte genom att blint implementera ramverk, utan genom att faktiskt förstå problemet från första princip. Idag arbetar jag som frilanskonsult med tillämpad AI, där jag hjälper organisationer att eliminera redundans och frigöra tid.
+Jag bygger intelligenta system som automatiserar komplexa arbetsflöden – inte genom att blint implementera ramverk, utan genom att faktiskt förstå problemet från grundprinciper. Idag arbetar jag som frilanskonsult med tillämpad AI, där jag hjälper organisationer att eliminera redundans och frigöra tid.
 
 
 (tankesattet)=

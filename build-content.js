@@ -600,6 +600,10 @@ function renderBlocks(blocks, options = {}) {
   return blocks.map((block) => renderBlock(block, options)).join('');
 }
 
+function isContentGroupHeading(block) {
+  return block.type === 'heading' && (block.level === 3 || block.level === 4);
+}
+
 function buildArticleModel(page) {
   const pageIntroBlocks = [];
   const sections = [];
@@ -627,7 +631,7 @@ function buildArticleModel(page) {
       return;
     }
 
-    if (block.type === 'heading' && block.level === 3) {
+    if (isContentGroupHeading(block)) {
       currentGroup = {
         heading: block,
         blocks: []
@@ -662,7 +666,10 @@ function buildChapterMapEntry(page) {
   }
 
   if (sections.length === 1 && sections[0].groups.length > 1) {
-    return sections[0].groups.map((group) => ({
+    const topLevelGroups = sections[0].groups.filter((group) => group.heading.level === 3);
+    const chapterGroups = topLevelGroups.length > 1 ? topLevelGroups : sections[0].groups;
+
+    return chapterGroups.map((group) => ({
       title: group.heading.text,
       anchor: group.heading.id
     }));
@@ -690,7 +697,7 @@ function renderSection(section) {
 }
 
 function renderGroup(group) {
-  const heading = renderArticleHeading(3, group.heading, ['article-heading', 'content-group-heading']);
+  const heading = renderArticleHeading(group.heading.level, group.heading, ['article-heading', 'content-group-heading']);
   const body = renderBlocks(group.blocks, { skipHr: true });
   return `<div class="content-group">${heading}<div class="article-content-block">${body}</div></div>`;
 }
