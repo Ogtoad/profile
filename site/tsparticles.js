@@ -117,7 +117,7 @@
         },
         number: {
           density: { enable: true, area: 1200 },
-          value: 35
+          value: 60
         },
         opacity: {
           value: { min: 0.03, max: 0.2 },

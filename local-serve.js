@@ -4,6 +4,7 @@
 const fs = require('fs');
 const path = require('path');
 const http = require('http');
+const { buildContentSite } = require('./build-content');
 
 const CONFIG = {
   sourceDir: path.join(__dirname, 'site'),
@@ -35,6 +36,7 @@ function parseCliArgs(argv) {
     buildOnly: false,
     baseUrl: '',
     normalizeSource: false,
+    skipContentBuild: false,
     siteOrigin: '',
     port: CONFIG.port
   };
@@ -50,6 +52,11 @@ function parseCliArgs(argv) {
 
     if (argument === '--normalize-source') {
       options.normalizeSource = true;
+      continue;
+    }
+
+    if (argument === '--skip-content-build') {
+      options.skipContentBuild = true;
       continue;
     }
 
@@ -660,9 +667,7 @@ function normalizeStructuredSectionMarkup(sectionMarkup) {
 
   flushPanel();
 
-  const normalizedHeading = panels.length
-    ? addClassesToRoot(heading, ['two-collumn-content'])
-    : addClassesToRoot(heading, [], ['two-collumn-content']);
+  const normalizedHeading = addClassesToRoot(heading, ['two-collumn-content']);
   const intro = introNodes.length
     ? `<div class="article-section-intro">${introNodes.join('')}</div>`
     : '';
@@ -677,9 +682,7 @@ function renderSection(section) {
   const intro = section.introNodes.length
     ? `<div class="article-section-intro">${section.introNodes.join('')}</div>`
     : '';
-  const heading = section.panels.length
-    ? addClassesToRoot(section.heading, ['two-collumn-content'])
-    : addClassesToRoot(section.heading, [], ['two-collumn-content']);
+  const heading = addClassesToRoot(section.heading, ['two-collumn-content']);
   const panels = section.panels.length
     ? `<div class="content article-section-content">${section.panels.map(renderPanel).join('')}</div>`
     : '';
@@ -688,6 +691,10 @@ function renderSection(section) {
 
 function normalizeArticleContentMarkup(html) {
   return html.replace(/(<article class="site-article"[^>]*)(>)([\s\S]*?)(<\/article>)/g, (match, openingTag, separator, innerHtml, closingTag) => {
+    if (/data-section-layout-ready="true"/.test(openingTag)) {
+      return `${openingTag}${separator}${innerHtml}${closingTag}`;
+    }
+
     if (innerHtml.includes('<section class="article-section"')) {
       const rebuiltStructured = splitTopLevelNodes(innerHtml).map((node) => {
         if (getNodeTagName(node) === 'SECTION' && hasClass(node, 'article-section')) {
@@ -935,6 +942,59 @@ function normalizeSourceHtml() {
   }
 }
 
+function getPathModifiedTimeMs(targetPath) {
+  if (!fs.existsSync(targetPath)) {
+    return 0;
+  }
+
+  return fs.statSync(targetPath).mtimeMs;
+}
+
+function getLatestModifiedTimeMs(targetPath) {
+  if (!fs.existsSync(targetPath)) {
+    return 0;
+  }
+
+  const stats = fs.statSync(targetPath);
+
+  if (stats.isFile()) {
+    return stats.mtimeMs;
+  }
+
+  let latestModifiedTimeMs = stats.mtimeMs;
+
+  for (const filePath of findFiles(targetPath)) {
+    latestModifiedTimeMs = Math.max(latestModifiedTimeMs, getPathModifiedTimeMs(filePath));
+  }
+
+  return latestModifiedTimeMs;
+}
+
+function getSourceModifiedTimeMs() {
+  return Math.max(
+    getLatestModifiedTimeMs(path.join(__dirname, 'content')),
+    getLatestModifiedTimeMs(CONFIG.sourceDir),
+    getPathModifiedTimeMs(path.join(__dirname, 'build-content.js')),
+    getPathModifiedTimeMs(__filename)
+  );
+}
+
+function buildSite(options) {
+  if (!options.skipContentBuild) {
+    buildContentSite();
+    logInfo('Generated site HTML from markdown content');
+  }
+
+  if (options.normalizeSource) {
+    normalizeSourceHtml();
+  }
+
+  return {
+    buildDir: copySite(options),
+    sourceModifiedTimeMs: getSourceModifiedTimeMs()
+  };
+}
+
 function copySite(options) {
   const buildDir = getBuildDir(options.buildTarget);
 
@@ -1012,12 +1072,21 @@ function streamFile(filePath, response) {
   fileStream.pipe(response);
 }
 
-function startServer(buildDir, port, baseUrl) {
+function startServer(initialBuildState, port, baseUrl, options) {
+  let buildState = initialBuildState;
+
   const server = http.createServer((request, response) => {
     try {
+      const latestSourceModifiedTimeMs = getSourceModifiedTimeMs();
+
+      if (latestSourceModifiedTimeMs > buildState.sourceModifiedTimeMs) {
+        logInfo('Detected source changes, rebuilding local site');
+        buildState = buildSite(options);
+      }
+
       const requestedPath = resolveRequestPath(request.url, baseUrl);
-      const primaryPath = path.join(buildDir, requestedPath);
-      const fallbackPath = path.join(buildDir, requestedPath.replace(/\/index\.html$/i, '.html'));
+      const primaryPath = path.join(buildState.buildDir, requestedPath);
+      const fallbackPath = path.join(buildState.buildDir, requestedPath.replace(/\/index\.html$/i, '.html'));
 
       if (fs.existsSync(primaryPath) && fs.statSync(primaryPath).isFile()) {
         streamFile(primaryPath, response);
@@ -1052,17 +1121,13 @@ function main() {
   const options = parseCliArgs(process.argv.slice(2));
 
   try {
-    if (options.normalizeSource) {
-      normalizeSourceHtml();
-    }
-
-    const buildDir = copySite(options);
+    const buildState = buildSite(options);
 
     if (options.buildOnly) {
       return;
     }
 
-    startServer(buildDir, options.port, options.baseUrl);
+    startServer(buildState, options.port, options.baseUrl, options);
   } catch (error) {
     logError('Startup failed', error && error.message ? error.message : error);
     process.exit(1);

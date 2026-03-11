@@ -21,6 +21,7 @@
     section.className = 'article-section';
 
     normalizeHeading(heading, 'article-section-heading');
+    heading.classList.add('two-collumn-content');
     section.appendChild(heading);
 
     return { section: section, heading: heading, intro: null, content: null };
@@ -47,7 +48,6 @@
     content.className = 'content article-section-content';
     sectionBlock.section.appendChild(content);
     sectionBlock.content = content;
-    sectionBlock.heading.classList.add('two-collumn-content');
     return content;
   }
 

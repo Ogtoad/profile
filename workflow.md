@@ -2,26 +2,23 @@
 
 ## Purpose
 
-This project now deploys from plain static source files. MyST is no longer part of the build or deploy path.
+This project deploys from markdown-authored content plus a static site shell. MyST is no longer part of the build or deploy path.
 
 ## Source of truth
 
-- `site/` contains the deployable site.
-- `site/index.html` is the homepage.
-- `site/<page>/index.html` contains each article page.
-- `site/myst-theme.css` is the global stylesheet currently used by the copied pages.
+- `content/*.md` is the content source of truth.
+- `build-content.js` converts the markdown files into `site/index.html`, `site/<page>/index.html`, `site/site-data.js`, `site/sitemap.xml`, and `site/robots.txt`.
+- `site/myst-theme.css` is the active global stylesheet.
 - `site/site-runtime.js`, `site/sidebar-headings.js`, `site/article-sections.js`, `site/tsparticles.js`, and `site/tsparticles.css` are the active runtime files.
-- `local-serve.js` copies `site/` into `_build/html` or `_build/site`, rewrites root-relative URLs for the configured base path, updates sitemap and robots URLs, and serves the output locally.
-
-Legacy files such as `content/`, `myst.yml`, `static/`, and `my-style.css` are no longer used by the deploy pipeline. Keep them only if you still want the old authoring source around.
+- `local-serve.js` runs the markdown build by default, copies `site/` into `_build/html` or `_build/site`, rewrites root-relative URLs for the configured base path, updates sitemap and robots URLs, and serves the output locally.
 
 ## Editing routine
 
-1. Edit page content directly in `site/*.html`.
+1. Edit page content in `content/*.md`.
 2. Edit shared behavior in the JS files under `site/`.
 3. Edit shared styling in `site/myst-theme.css`.
-4. If you add a page, create `site/<slug>/index.html` and update the navigation links in the existing HTML pages.
-5. If you add or rename a public page, update `site/sitemap.xml` and verify `robots.txt` still points to the sitemap.
+4. Run `node build-content.js` or `node local-serve.js --build-only` to regenerate the HTML pages.
+5. If you add a page, add a new markdown file in `content/` and update `content/index.md` so navigation and pagination order stay intentional.
 
 ## Local build
 
@@ -29,6 +26,12 @@ Build only:
 
 ```powershell
 node local-serve.js --target html --build-only
+```
+
+Generate the site HTML without copying to `_build`:
+
+```powershell
+node build-content.js
 ```
 
 Build for GitHub Pages with a repo base path:
@@ -56,8 +59,9 @@ Deploy runs through `.github/workflows/deploy.yml`.
 Flow:
 
 1. Push to `main`.
-2. GitHub Actions runs `node local-serve.js --target html --build-only --base-url "/<repo-name>" --site-origin "https://<owner>.github.io/<repo-name>"`.
-3. `_build/html` is uploaded to GitHub Pages.
+2. GitHub Actions runs `node build-content.js`.
+3. GitHub Actions runs `node local-serve.js --skip-content-build --target html --build-only --base-url "/<repo-name>" --site-origin "https://<owner>.github.io/<repo-name>"`.
+4. `_build/html` is uploaded to GitHub Pages.
 
 ## Pre-push check
 

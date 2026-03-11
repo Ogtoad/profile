@@ -5,33 +5,17 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Kompetensprofil - Phi-ihP</title>
   <meta property="og:title" content="Kompetensprofil - Phi-ihP" />
-  <meta
-    name="description"
-    content="En kondenserad överblick av Philip Prstojevics kompetenser och verktyg."
-  />
-  <meta
-    property="og:description"
-    content="En kondenserad överblick av Philip Prstojevics kompetenser och verktyg."
-  />
+  <meta name="description" content="En kondenserad överblick av Philip Prstojevics kompetenser och verktyg." />
+  <meta property="og:description" content="En kondenserad överblick av Philip Prstojevics kompetenser och verktyg." />
   <meta name="keywords" content="" />
   <link rel="stylesheet" href="/build/_assets/app-CNUB3V65.css" />
   <link rel="stylesheet" href="/build/_assets/thebe-core-VKVHG5VY.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/jupyter-matplotlib@0.11.3/css/mpl_widget.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
-    integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"
-    crossorigin="anonymous"
-  />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jupyter-matplotlib@0.11.3/css/mpl_widget.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/myst-theme.css" />
+  <script src="/site-data.js" defer></script>
   <script>
     const savedTheme = localStorage.getItem("myst:theme");
     const theme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
@@ -46,143 +30,45 @@
     <a href="#skip-to-frontmatter" class="site-skip-link">Skip to article frontmatter</a>
     <a href="#skip-to-article" class="site-skip-link">Skip to article content</a>
   </div>
-
   <header class="site-header">
     <div class="site-header-bar">
-      <button class="site-menu-button" type="button" aria-label="Open navigation" aria-expanded="false">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon" width="1.5rem" height="1.5rem">
-          <path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"></path>
-        </svg>
-        <span class="sr-only">Open Menu</span>
-      </button>
+      <button class="site-menu-button" type="button" aria-label="Open navigation" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon" width="1.5rem" height="1.5rem"><path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"></path></svg><span class="sr-only">Open Menu</span></button>
       <a class="site-brand" href="/">Phi-ihP</a>
     </div>
   </header>
-
   <aside class="site-sidebar">
     <div class="site-sidebar-shell">
       <nav aria-label="Primary" class="site-sidebar-nav">
         <div class="site-sidebar-scroll">
-          <div class="site-sidebar-toc">
-            <ul class="site-nav-list">
-              <li class="site-nav-item"><a class="site-nav-link" href="/">Appendix</a></li>
-              <li class="site-nav-item"><a class="site-nav-link" href="/om-mig">Om mig</a></li>
-              <li class="site-nav-item"><a class="site-nav-link is-active" href="/kompetensprofil" aria-current="page">Kompetensprofil</a></li>
-              <li class="site-nav-item"><a class="site-nav-link" href="/harness-engineering">Ai. pipelines och grafer</a></li>
-              <li class="site-nav-item"><a class="site-nav-link" href="/automatisera-arbetsfloden">Automation</a></li>
-              <li class="site-nav-item"><a class="site-nav-link" href="/computer-vision">Datorseende och Generativ Syntes</a></li>
-            </ul>
-          </div>
+          <div class="site-sidebar-toc"><ul class="site-nav-list"><li class="site-nav-item"><a class="site-nav-link" href="/">Appendix</a></li><li class="site-nav-item"><a class="site-nav-link" href="/om-mig">Om mig</a></li><li class="site-nav-item"><a class="site-nav-link is-active" href="/kompetensprofil" aria-current="page">Kompetensprofil</a></li><li class="site-nav-item"><a class="site-nav-link" href="/harness-engineering">Ai. pipelines och grafer</a></li><li class="site-nav-item"><a class="site-nav-link" href="/automatisera-arbetsfloden">Automation</a></li><li class="site-nav-item"><a class="site-nav-link" href="/computer-vision">Datorseende och Generativ Syntes</a></li></ul></div>
         </div>
       </nav>
     </div>
   </aside>
-
   <main class="site-main">
-    <article class="site-article" data-section-layout-ready="true"><div id="skip-to-frontmatter" aria-label="article frontmatter" class="page-hero">
-        <h1 class="page-title">Kompetensprofil</h1>
-        <p class="page-subtitle">Översikt över färdigheter, systemtänkande och teknikstack</p>
-      </div><div id="skip-to-article"></div><div class="article-page-intro">
-        <p>En koncis översikt av mina kompetensområden, arbetssätt och verktyg inom tillämpad AI, systemutveckling och teknisk problemlösning.</p>
-      </div><section class="article-section"><h2 id="karnkompetenser"         class="article-heading article-section-heading two-collumn-content">
-          <span class="article-heading-text">Kärnkompetenser</span>
-          <a class="article-heading-anchor" href="#karnkompetenser" title="Link to this Section" aria-label="Link to this Section">¶</a>
-        </h2><div class="content article-section-content"><div class="content-group"><h3 id="ai-losningar-och-automation"     class="article-heading content-group-heading">
-          <span class="article-heading-text">AI-lösningar och automation</span>
-          <a class="article-heading-anchor" href="#ai-losningar-och-automation" title="Link to this Section" aria-label="Link to this Section">¶</a>
-        </h3><div class="article-content-block"><ul     class="">
-              <li><p>Design och implementation av AI-stödda arbetsflöden för att automatisera repetitiva processer.</p></li>
-              <li><p>Harness engineering, pipeline-arkitektur och agentflöden med fokus på kontroll, felhantering och robusthet.</p></li>
-              <li><p>RAG, embeddings, strukturerade utdata och minneshantering för kunskapsintensiva system.</p></li>
-              <li><p>Dokumentgranskning, avvikelsehantering och human-in-the-loop-design i affärskritiska flöden.</p></li>
-            </ul></div></div><div class="content-group"><h3 id="analys-och-informationsutvinning"     class="article-heading content-group-heading">
-          <span class="article-heading-text">Analys och informationsutvinning</span>
-          <a class="article-heading-anchor" href="#analys-och-informationsutvinning" title="Link to this Section" aria-label="Link to this Section">¶</a>
-        </h3><div class="article-content-block"><ul     class="">
-              <li><p>NLP och språkmodeller för klassificering, extraktion, semantisk sökning och resonemangsnära system.</p></li>
-              <li><p>Computer vision för OCR, klassificering, segmentering, spårning och visuell analys.</p></li>
-              <li><p>Akustisk analys via spektrogram för röst, maskinljud och annan signalbaserad data.</p></li>
-              <li><p>Digital forensik, metadataanalys och teknisk diagnostik av filer, system och nätverk.</p></li>
-            </ul></div></div><div class="content-group"><h3 id="systemarkitektur-och-leverans"     class="article-heading content-group-heading">
-          <span class="article-heading-text">Systemarkitektur och leverans</span>
-          <a class="article-heading-anchor" href="#systemarkitektur-och-leverans" title="Link to this Section" aria-label="Link to this Section">¶</a>
-        </h3><div class="article-content-block"><ul     class="">
-              <li><p>Backend- och integrationsdesign för system där data, modeller och gränssnitt behöver samverka.</p></li>
-              <li><p>Tvärvetenskaplig problemlösning som kopplar samman forskning, teknik, design och användbarhet.</p></li>
-              <li><p>Prototyping och R&amp;D-arbete i problemområden med hög osäkerhet eller många edge cases.</p></li>
-              <li><p>Förmåga att omsätta komplex teori till fungerande produkter, verktyg och begripliga gränssnitt.</p></li>
-            </ul></div></div></div></section><section class="article-section"><h2 id="teknikstack"         class="article-heading article-section-heading two-collumn-content">
-          <span class="article-heading-text">Teknikstack</span>
-          <a class="article-heading-anchor" href="#teknikstack" title="Link to this Section" aria-label="Link to this Section">¶</a>
-        </h2><div class="content article-section-content"><div class="content-group"><h3 id="sprak-och-ramverk"     class="article-heading content-group-heading">
-          <span class="article-heading-text">Språk och ramverk</span>
-          <a class="article-heading-anchor" href="#sprak-och-ramverk" title="Link to this Section" aria-label="Link to this Section">¶</a>
-        </h3><div class="article-content-block"><ul     class="">
-              <li><p>Python: FastAPI, Django, Flask, pandas, numpy, matplotlib.</p></li>
-              <li><p>JavaScript/TypeScript: Node.js, Bun, HTMX, React, Electron.</p></li>
-              <li><p>SQL och relationsmodellering för datalager, integration och applikationslogik.</p></li>
-            </ul></div></div><div class="content-group"><h3 id="ai-data-och-integrationslager"     class="article-heading content-group-heading">
-          <span class="article-heading-text">AI, data och integrationslager</span>
-          <a class="article-heading-anchor" href="#ai-data-och-integrationslager" title="Link to this Section" aria-label="Link to this Section">¶</a>
-        </h3><div class="article-content-block"><ul     class="">
-              <li><p>LangGraph, Pydantic, structured outputs, multi-modell-orkestrering och agentminne.</p></li>
-              <li><p>RAG-pipelines, vektordatabaser, embeddings och LoRA-adaptrar.</p></li>
-              <li><p>API-integration, backend-tjänster och fullstack-koppling mellan datakällor, modeller och UI.</p></li>
-              <li><p>Web crawling och scraping med requests, BeautifulSoup och Scrapy.</p></li>
-            </ul></div></div><div class="content-group"><h3 id="drift-test-och-miljoer"     class="article-heading content-group-heading">
-          <span class="article-heading-text">Drift, test och miljöer</span>
-          <a class="article-heading-anchor" href="#drift-test-och-miljoer" title="Link to this Section" aria-label="Link to this Section">¶</a>
-        </h3><div class="article-content-block"><ul     class="">
-              <li><p>Git, pytest, Jest och Postman för testning, validering och iteration.</p></li>
-              <li><p>Debian/Linux, SSH, iptables, OpenWRT och Windows Server med Active Directory.</p></li>
-              <li><p>Nätverksdiagnostik, infrastrukturell felsökning och praktisk drift av tekniska miljöer.</p></li>
-            </ul></div></div><div class="content-group"><h3 id="narliggande-domaner"     class="article-heading content-group-heading">
-          <span class="article-heading-text">Närliggande domäner</span>
-          <a class="article-heading-anchor" href="#narliggande-domaner" title="Link to this Section" aria-label="Link to this Section">¶</a>
-        </h3><div class="article-content-block"><ul     class="">
-              <li><p>Generativ syntes för bild, ljud och syntetisk träningsdata.</p></li>
-              <li><p>Grafisk design och UI-arbete där informationsarkitektur stödjer tydlighet och användbarhet.</p></li>
-              <li><p>Experimentella prototyper inom autonomi, integritet och konceptuella system.</p></li>
-            </ul></div></div></div></section><section class="article-section"><h2 id="professionell-passform"         class="article-heading article-section-heading">
-          <span class="article-heading-text">Professionell passform</span>
-          <a class="article-heading-anchor" href="#professionell-passform" title="Link to this Section" aria-label="Link to this Section">¶</a>
-        </h2><div class="article-section-intro"><ul     class="article-section-copy">
-            <li><p>Roller där AI-tillämpning, systemarkitektur och produktutveckling behöver mötas.</p></li>
-            <li><p>Uppdrag som kräver både teknisk bredd och förmåga att fördjupa sig snabbt i en ny domän.</p></li>
-            <li><p>Miljöer där prototyper, forskning och praktisk leverans behöver drivas i samma arbete.</p></li>
-          </ul></div></section><div class="site-backmatter"></div><nav class="site-pagination" aria-label="Article pagination">
-        <a class="site-pagination-link site-pagination-link-prev" href="/om-mig">
-          <span class="site-pagination-eyebrow">Phi-ihP</span>
-          <span class="site-pagination-label">Om mig</span>
-        </a>
-        <a class="site-pagination-link site-pagination-link-next" href="/harness-engineering">
-          <span class="site-pagination-eyebrow">Phi-ihP</span>
-          <span class="site-pagination-label">Ai. pipelines och grafer</span>
-        </a>
-      </nav></article>
+    <article class="site-article" data-section-layout-ready="true"><div id="skip-to-frontmatter" aria-label="article frontmatter" class="page-hero"><h1 class="page-title">Kompetensprofil</h1><p class="page-subtitle">Översikt över färdigheter, systemtänkande och teknikstack</p></div><div id="skip-to-article"></div><div class="article-page-intro"><p>En koncis översikt av mina kompetensområden, arbetssätt och verktyg inom tillämpad AI, systemutveckling och teknisk problemlösning.</p></div><section class="article-section"><h2 id="karnkompetenser" class="article-heading article-section-heading two-collumn-content"><span class="article-heading-text">Kärnkompetenser</span><a class="article-heading-anchor" href="#karnkompetenser" title="Link to this Section" aria-label="Link to this Section">¶</a></h2><div class="content article-section-content"><div class="content-group"><h3 id="ai-losningar-och-automation" class="article-heading content-group-heading"><span class="article-heading-text">AI-lösningar och automation</span><a class="article-heading-anchor" href="#ai-losningar-och-automation" title="Link to this Section" aria-label="Link to this Section">¶</a></h3><div class="article-content-block"><ul><li><p>Design och implementation av AI-stödda arbetsflöden för att automatisera repetitiva processer.</p></li><li><p>Harness engineering, pipeline-arkitektur och agentflöden med fokus på kontroll, felhantering och robusthet.</p></li><li><p>RAG, embeddings, strukturerade utdata och minneshantering för kunskapsintensiva system.</p></li><li><p>Dokumentgranskning, avvikelsehantering och human-in-the-loop-design i affärskritiska flöden.</p></li></ul></div></div><div class="content-group"><h3 id="analys-och-informationsutvinning" class="article-heading content-group-heading"><span class="article-heading-text">Analys och informationsutvinning</span><a class="article-heading-anchor" href="#analys-och-informationsutvinning" title="Link to this Section" aria-label="Link to this Section">¶</a></h3><div class="article-content-block"><ul><li><p>NLP och språkmodeller för klassificering, extraktion, semantisk sökning och resonemangsnära system.</p></li><li><p>Computer vision för OCR, klassificering, segmentering, spårning och visuell analys.</p></li><li><p>Akustisk analys via spektrogram för röst, maskinljud och annan signalbaserad data.</p></li><li><p>Digital forensik, metadataanalys och teknisk diagnostik av filer, system och nätverk.</p></li></ul></div></div><div class="content-group"><h3 id="systemarkitektur-och-leverans" class="article-heading content-group-heading"><span class="article-heading-text">Systemarkitektur och leverans</span><a class="article-heading-anchor" href="#systemarkitektur-och-leverans" title="Link to this Section" aria-label="Link to this Section">¶</a></h3><div class="article-content-block"><ul><li><p>Backend- och integrationsdesign för system där data, modeller och gränssnitt behöver samverka.</p></li><li><p>Tvärvetenskaplig problemlösning som kopplar samman forskning, teknik, design och användbarhet.</p></li><li><p>Prototyping och R&amp;D-arbete i problemområden med hög osäkerhet eller många edge cases.</p></li><li><p>Förmåga att omsätta komplex teori till fungerande produkter, verktyg och begripliga gränssnitt.</p></li></ul></div></div></div></section><section class="article-section"><h2 id="teknikstack" class="article-heading article-section-heading two-collumn-content"><span class="article-heading-text">Teknikstack</span><a class="article-heading-anchor" href="#teknikstack" title="Link to this Section" aria-label="Link to this Section">¶</a></h2><div class="content article-section-content"><div class="content-group"><h3 id="sprak-och-ramverk" class="article-heading content-group-heading"><span class="article-heading-text">Språk och ramverk</span><a class="article-heading-anchor" href="#sprak-och-ramverk" title="Link to this Section" aria-label="Link to this Section">¶</a></h3><div class="article-content-block"><ul><li><p>Python: FastAPI, Django, Flask, pandas, numpy, matplotlib.</p></li><li><p>JavaScript/TypeScript: Node.js, Bun, HTMX, React, Electron.</p></li><li><p>SQL och relationsmodellering för datalager, integration och applikationslogik.</p></li></ul></div></div><div class="content-group"><h3 id="ai-data-och-integrationslager" class="article-heading content-group-heading"><span class="article-heading-text">AI, data och integrationslager</span><a class="article-heading-anchor" href="#ai-data-och-integrationslager" title="Link to this Section" aria-label="Link to this Section">¶</a></h3><div class="article-content-block"><ul><li><p>LangGraph, Pydantic, structured outputs, multi-modell-orkestrering och agentminne.</p></li><li><p>RAG-pipelines, vektordatabaser, embeddings och LoRA-adaptrar.</p></li><li><p>API-integration, backend-tjänster och fullstack-koppling mellan datakällor, modeller och UI.</p></li><li><p>Web crawling och scraping med requests, BeautifulSoup och Scrapy.</p></li></ul></div></div><div class="content-group"><h3 id="drift-test-och-miljoer" class="article-heading content-group-heading"><span class="article-heading-text">Drift, test och miljöer</span><a class="article-heading-anchor" href="#drift-test-och-miljoer" title="Link to this Section" aria-label="Link to this Section">¶</a></h3><div class="article-content-block"><ul><li><p>Git, pytest, Jest och Postman för testning, validering och iteration.</p></li><li><p>Debian/Linux, SSH, iptables, OpenWRT och Windows Server med Active Directory.</p></li><li><p>Nätverksdiagnostik, infrastrukturell felsökning och praktisk drift av tekniska miljöer.</p></li></ul></div></div><div class="content-group"><h3 id="narliggande-domaner" class="article-heading content-group-heading"><span class="article-heading-text">Närliggande domäner</span><a class="article-heading-anchor" href="#narliggande-domaner" title="Link to this Section" aria-label="Link to this Section">¶</a></h3><div class="article-content-block"><ul><li><p>Generativ syntes för bild, ljud och syntetisk träningsdata.</p></li><li><p>Grafisk design och UI-arbete där informationsarkitektur stödjer tydlighet och användbarhet.</p></li><li><p>Experimentella prototyper inom autonomi, integritet och konceptuella system.</p></li></ul></div></div></div></section><section class="article-section"><h2 id="professionell-passform" class="article-heading article-section-heading two-collumn-content"><span class="article-heading-text">Professionell passform</span><a class="article-heading-anchor" href="#professionell-passform" title="Link to this Section" aria-label="Link to this Section">¶</a></h2><div class="article-section-intro"><p class="article-section-copy">Edgecases, Research &amp; Development. Uppdrag som kräver både teknisk bredd och förmåga att fördjupa sig snabbt i nya domäner. Miljöer där prototyper, forskning och praktisk leverans behöver drivas i samma arbete.</p></div></section><div class="site-backmatter"></div><nav class="site-pagination" aria-label="Article pagination"><a class="site-pagination-link site-pagination-link-prev" href="/om-mig"><span class="site-pagination-eyebrow">Phi-ihP</span><span class="site-pagination-label">Om mig</span></a><a class="site-pagination-link site-pagination-link-next" href="/harness-engineering"><span class="site-pagination-eyebrow">Phi-ihP</span><span class="site-pagination-label">Ai. pipelines och grafer</span></a></nav></article>
   </main>
-
   <script>
-    (function bootstrapProphileRuntimeLoader() {
-      "use strict";
-      try {
-        var themeLink = document.querySelector('link[href$="myst-theme.css"], link[href*="/myst-theme.css"]');
-        var href = themeLink ? themeLink.getAttribute("href") : "";
-        var match = href ? href.match(/^(.*)\/myst-theme\.css(?:\?.*)?$/) : null;
-        var basePath = match && match[1] && match[1] !== "/" ? match[1].replace(/\/+$/, "") : "";
-        var runtimeUrl = (basePath ? basePath : "") + "/site-runtime.js";
-        if (document.querySelector('script[src="' + runtimeUrl + '"]')) {
-          return;
-        }
-        var runtimeScript = document.createElement("script");
-        runtimeScript.src = runtimeUrl;
-        runtimeScript.defer = true;
-        runtimeScript.dataset.prophileRuntime = "true";
-        document.body.appendChild(runtimeScript);
-      } catch (error) {
-        console.error("[site-runtime] ERROR Failed to inject runtime loader", error);
-      }
-    })();
-  </script>
+(function bootstrapProphileRuntimeLoader() {
+  "use strict";
+  try {
+    var themeLink = document.querySelector('link[href$="myst-theme.css"], link[href*="/myst-theme.css"]');
+    var href = themeLink ? themeLink.getAttribute("href") : "";
+    var match = href ? href.match(/^(.*)\/myst-theme\.css(?:\?.*)?$/) : null;
+    var basePath = match && match[1] && match[1] !== "/" ? match[1].replace(/\/+$/, "") : "";
+    var runtimeUrl = (basePath ? basePath : "") + "/site-runtime.js";
+    if (document.querySelector('script[src="' + runtimeUrl + '"]')) {
+      return;
+    }
+    var runtimeScript = document.createElement("script");
+    runtimeScript.src = runtimeUrl;
+    runtimeScript.defer = true;
+    runtimeScript.dataset.prophileRuntime = "true";
+    document.body.appendChild(runtimeScript);
+  } catch (error) {
+    console.error("[site-runtime] ERROR Failed to inject runtime loader", error);
+  }
+})();
+</script>
 </body>
 </html>

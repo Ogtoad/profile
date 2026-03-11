@@ -1,40 +1,7 @@
 (function () {
   'use strict';
 
-  var chapterMap = {
-    'Om mig': [
-      { title: 'Tankesättet', anchor: 'tankesattet' },
-      { title: 'Varför det spelar roll', anchor: 'varfor-det-spelar-roll' },
-      { title: 'Värderingar om AI', anchor: 'varderingar-om-ai' },
-      { title: 'Teknik och verktyg', anchor: 'teknik-och-verktyg' },
-      { title: 'Vad jag gör idag', anchor: 'vad-jag-gor-idag' }
-    ],
-    'Kompetensprofil': [
-      { title: 'Kärnkompetenser', anchor: 'karnkompetenser' },
-      { title: 'Teknikstack', anchor: 'teknikstack' },
-      { title: 'Professionell passform', anchor: 'professionell-passform' }
-    ],
-    'Ai. pipelines och grafer': [
-      { title: 'Harness engineering och pipelines', anchor: 'harness-engineering-och-pipelines' },
-      { title: 'Kritisk granskning av genomförbarhet', anchor: 'kritisk-granskning-av-genomforbarhet' },
-      { title: 'Typsäkerhet, modeller och minne', anchor: 'typsakerhet-multimodell-minne' },
-      { title: 'MCP och ACP', anchor: 'mcp-och-acp' },
-      { title: 'RAG och LoRA', anchor: 'rag-vektordatabaser-och-lora' },
-      { title: 'KV-cachen', anchor: 'kv-cachen-och-uppmarksamhetsmekanismen' }
-    ],
-    'Automation': [
-      { title: 'Deterministisk och probabilistisk automation', anchor: 'fran-deterministisk-till-probabilistisk' },
-      { title: 'Reducering av redundans', anchor: 'reducering-av-redundans' },
-      { title: 'Dokumentgranskning', anchor: 'dokumentgranskning-och-avvikelsehantering' },
-      { title: 'Kvalitetssäkring', anchor: 'kvalitetssakring-och-systemresiliens' },
-      { title: 'Sammanfattning', anchor: 'sammanfattning' }
-    ],
-    'Datorseende och Generativ Syntes': [
-      { title: 'Visuell informationsutvinning', anchor: 'visuell-informationsutvinning' },
-      { title: 'Akustisk analys', anchor: 'akustisk-analys' },
-      { title: 'Generativ syntes', anchor: 'generativ-syntes' }
-    ]
-  };
+  var chapterMap = window.PROPHILE_CHAPTER_MAP || {};
 
   function normalizePath(href) {
     try {
@@ -48,6 +15,11 @@
 
   function isCurrentPath(path) {
     return normalizePath(window.location.href) === normalizePath(path);
+  }
+
+  function getPageSlug(path) {
+    var normalizedPath = normalizePath(path);
+    return normalizedPath === '/' ? 'index' : normalizedPath.replace(/^\//, '');
   }
 
   function buildChapterList(baseHref, chapters) {
@@ -135,7 +107,7 @@
       heading.appendChild(pageLink);
       section.appendChild(heading);
 
-      var chapterList = buildChapterList(href, chapterMap[title]);
+      var chapterList = buildChapterList(href, chapterMap[getPageSlug(href)]);
       if (chapterList) {
         chapterList.hidden = !isCurrentPath(href);
         section.appendChild(chapterList);

@@ -30,8 +30,11 @@ jobs:
         with:
           node-version: 22
 
+      - name: Generate HTML from markdown
+        run: node build-content.js
+
       - name: Build static site
-        run: node local-serve.js --target html --build-only --base-url "/${{ github.event.repository.name }}" --site-origin "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}"
+        run: node local-serve.js --skip-content-build --target html --build-only --base-url "/${{ github.event.repository.name }}" --site-origin "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

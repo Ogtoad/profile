@@ -33,6 +33,7 @@
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3);
+  --link-glow: 0 0 0.45rem rgba(248, 245, 239, 0.32), 0 0 1rem rgba(248, 245, 239, 0.18);
   --measure: 58rem;
   --measure-wide: 66rem;
 }
@@ -546,11 +547,14 @@ em {
 a {
   color: var(--accent-dim) !important;
   text-decoration: none !important;
-  transition: color 0.3s var(--ease) !important;
+  text-shadow: none !important;
+  transition: color 0.3s var(--ease), text-shadow 0.3s var(--ease) !important;
 }
 
-a:hover {
+a:hover,
+a:focus-visible {
   color: var(--accent) !important;
+  text-shadow: var(--link-glow) !important;
 }
 
 /* Section link anchors */
@@ -1458,6 +1462,7 @@ table td {
 
 :root {
   --article-intro-measure: 52rem;
+  --article-panel-gap: clamp(3.2rem, 5vw, 4.75rem);
   --latex-measure: 100%;
   --latex-indent: 0;
 }
@@ -1574,7 +1579,8 @@ article hr {
   margin: 2rem 0 3rem !important;
 }
 
-.appendix-directory h2 {
+.appendix-directory h2,
+.appendix-directory h3 {
   margin-top: 0 !important;
   margin-bottom: 0.5rem !important;
 }
@@ -1582,6 +1588,52 @@ article hr {
 .appendix-directory p,
 .appendix-directory ul {
   margin-left: 0 !important;
+}
+
+.appendix-directory .content-group {
+  display: grid !important;
+  gap: 0.35rem !important;
+}
+
+.appendix-directory .article-content-block {
+  display: grid !important;
+  gap: 0.3rem !important;
+}
+
+.appendix-directory .appendix-item-grid {
+  list-style: none !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 0.6rem 1rem !important;
+  padding: 0 !important;
+  margin-top: 0.2rem !important;
+  margin-bottom: 0 !important;
+}
+
+.appendix-directory .appendix-item {
+  display: grid !important;
+  grid-template-columns: auto minmax(0, 1fr) !important;
+  align-items: start !important;
+  gap: 0.05rem 0.7rem !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.appendix-directory .appendix-item::before {
+  content: attr(data-appendix-item-code) !important;
+  font-family: var(--font-ui) !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: rgba(199, 193, 184, 0.68) !important;
+  line-height: 1.6 !important;
+  padding-top: 0.08rem !important;
+}
+
+.appendix-directory .appendix-item > p {
+  margin: 0 !important;
 }
 
 .appendix-directory ul {
@@ -1618,6 +1670,12 @@ body.sidebar-open-lock {
   overflow: hidden !important;
 }
 
+@media (min-width: 1025px) {
+  .appendix-directory .appendix-item-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
 @media (max-width: 1024px) {
   .myst-top-nav-menu-button {
     display: inline-flex !important;
@@ -1650,6 +1708,15 @@ body.sidebar-open-lock {
   .appendix-directory p,
   .appendix-directory ul {
     margin-left: 0.95rem !important;
+  }
+
+  .appendix-directory .appendix-item-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 0.5rem !important;
+  }
+
+  .appendix-directory .appendix-item::before {
+    font-size: 0.68rem !important;
   }
 }
 
@@ -1727,7 +1794,8 @@ body.sidebar-open-lock {
 .article-section-content {
   display: grid !important;
   grid-template-columns: minmax(0, 1fr) !important;
-  gap: 1.1rem 2.6rem !important;
+  row-gap: 1.1rem !important;
+  column-gap: var(--article-panel-gap) !important;
   width: 100% !important;
   max-width: none !important;
   align-items: start !important;
@@ -1809,7 +1877,6 @@ body.sidebar-open-lock {
 @media (min-width: 1025px) {
   .article-section-content {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 1.1rem 2.6rem !important;
   }
 }
 
@@ -2018,7 +2085,7 @@ body.sidebar-open-lock {
   width: 100% !important;
   margin-left: auto !important;
   margin-right: auto !important;
-  padding: 0 clamp(2rem, 4vw, 4.5rem) 5rem !important;
+  padding: 15px clamp(2rem, 4vw, 4.5rem) 5rem !important;
   box-sizing: border-box !important;
   background: linear-gradient(180deg, rgba(11, 12, 15, 0.88), rgba(14, 16, 20, 0.84)) !important;
   backdrop-filter: blur(14px) saturate(105%) !important;
@@ -2108,6 +2175,15 @@ body.sidebar-open-lock {
   text-align: left !important;
 }
 
+@media (min-width: 769px) {
+  .site-pagination > .site-pagination-link-next:only-child {
+    flex: 0 1 calc(50% - 0.5rem) !important;
+    max-width: calc(50% - 0.5rem) !important;
+    margin-left: auto !important;
+    text-align: right !important;
+  }
+}
+
 .site-pagination-link:hover {
   color: var(--accent) !important;
   background: transparent !important;
@@ -2186,7 +2262,7 @@ body.sidebar-open-lock {
 
   .site-article {
     max-width: none !important;
-    padding: 0 1.1rem 3rem !important;
+    padding: 15px 1.1rem 3rem !important;
     border-left: none !important;
     border-right: none !important;
   }
@@ -2206,11 +2282,288 @@ body.sidebar-open-lock {
   }
 
   .site-article {
-    padding: 0 0.9rem 2.4rem !important;
+    padding: 15px 0.9rem 2.4rem !important;
     background: rgba(11, 12, 15, 0.92) !important;
   }
 
   .site-sidebar {
     width: min(90vw, 300px) !important;
+  }
+}
+
+/* Post-2026 responsive refinement pass */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.site-main,
+.site-article,
+.article-section-content,
+.content-group,
+.article-content-block {
+  min-width: 0 !important;
+}
+
+.page-title,
+.page-subtitle,
+.article-heading-text,
+.article-content-block > *,
+.appendix-directory p,
+.appendix-directory li,
+.site-sidebar-toc a,
+.site-pagination-label {
+  overflow-wrap: anywhere !important;
+}
+
+img,
+video,
+canvas,
+svg,
+iframe {
+  max-width: 100% !important;
+}
+
+iframe,
+img,
+video,
+canvas {
+  height: auto !important;
+}
+
+@media (max-width: 1024px) {
+  .site-main {
+    min-height: calc(100dvh - 56px) !important;
+  }
+
+  .site-sidebar {
+    height: calc(100dvh - 56px) !important;
+  }
+
+  .site-sidebar-scroll {
+    padding: 1rem 1rem max(1.35rem, env(safe-area-inset-bottom)) !important;
+  }
+
+  .site-sidebar-toc a,
+  .appendix-entry__link {
+    padding-top: 0.36rem !important;
+    padding-bottom: 0.36rem !important;
+  }
+
+  .appendix-page-entry__link {
+    padding-top: 0.2rem !important;
+    padding-bottom: 0.2rem !important;
+  }
+
+  .article-section {
+    margin-top: 1.75rem !important;
+    padding-top: 1rem !important;
+  }
+
+  .article-page-intro {
+    margin-bottom: 1.45rem !important;
+  }
+
+  .article-section-content {
+    gap: 0.95rem 1.2rem !important;
+  }
+
+  .site-pagination {
+    gap: 0.75rem !important;
+    padding-top: 2rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-article {
+    padding: 15px 1rem 2.75rem !important;
+  }
+
+  .page-hero {
+    padding-top: 1.2rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+
+  .page-title {
+    font-size: clamp(1.55rem, 7vw, 2rem) !important;
+    line-height: 1.08 !important;
+  }
+
+  .page-subtitle {
+    font-size: 0.82rem !important;
+    letter-spacing: 0.1em !important;
+    line-height: 1.45 !important;
+    margin-top: 0.5rem !important;
+  }
+
+  .article-section-heading {
+    margin-bottom: 0.7rem !important;
+  }
+
+  .article-section-intro {
+    margin-bottom: 0.85rem !important;
+  }
+
+  .article-section-content {
+    margin-top: 0.6rem !important;
+    gap: 0.85rem !important;
+  }
+
+  .article-content-block {
+    gap: 0.45rem !important;
+  }
+
+  .appendix-directory {
+    margin: 1.5rem 0 2rem !important;
+  }
+
+  .appendix-directory ul {
+    padding-left: 1.1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .site-pagination {
+    flex-direction: column !important;
+    gap: 0.35rem !important;
+    padding-top: 1.75rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .site-pagination-link,
+  .site-pagination-link-prev,
+  .site-pagination-link-next {
+    text-align: left !important;
+    padding: 0.85rem 0 !important;
+  }
+
+  .site-pagination > .site-pagination-link-next:only-child {
+    text-align: right !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    height: 54px !important;
+  }
+
+  .site-header-bar {
+    min-height: 54px !important;
+    padding-left: max(0.8rem, env(safe-area-inset-left)) !important;
+    padding-right: max(0.8rem, env(safe-area-inset-right)) !important;
+  }
+
+  .site-menu-button {
+    width: 38px !important;
+    height: 38px !important;
+    margin-right: 0.35rem !important;
+  }
+
+  .site-brand {
+    font-size: 0.95rem !important;
+  }
+
+  .site-main {
+    min-height: calc(100dvh - 54px) !important;
+    padding-top: 54px !important;
+  }
+
+  .site-sidebar {
+    top: 54px !important;
+    height: calc(100dvh - 54px) !important;
+    width: min(92vw, 320px) !important;
+  }
+
+  .mobile-sidebar-backdrop {
+    inset: 54px 0 0 0 !important;
+  }
+
+  .site-article {
+    padding: 15px 0.9rem 2.2rem !important;
+    background: rgba(11, 12, 15, 0.92) !important;
+    border-radius: 0 !important;
+  }
+
+  .page-hero {
+    padding-top: 1rem !important;
+  }
+
+  .page-title {
+    font-size: clamp(1.45rem, 8vw, 1.9rem) !important;
+  }
+
+  .page-subtitle {
+    font-size: 0.78rem !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  article p,
+  article li,
+  article td,
+  article th,
+  article figcaption {
+    font-size: 0.98rem !important;
+    line-height: 1.72 !important;
+  }
+
+  .article-section {
+    margin-top: 1.45rem !important;
+    padding-top: 0.9rem !important;
+  }
+
+  .article-section:first-of-type {
+    margin-top: 1.6rem !important;
+  }
+
+  .article-section-content {
+    gap: 0.75rem !important;
+  }
+
+  .article-heading-anchor {
+    display: none !important;
+  }
+
+  .appendix-directory p,
+  .appendix-directory ul {
+    margin-left: 0 !important;
+  }
+
+  .appendix-directory ul {
+    padding-left: 1rem !important;
+  }
+
+  .site-sidebar-toc a,
+  .appendix-entry__link {
+    font-size: 0.95rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .appendix-page-entry__link {
+    font-size: 0.8rem !important;
+    line-height: 1.35 !important;
+    padding-left: 0.55rem !important;
+  }
+
+  .site-pagination-label {
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-article {
+    padding: 15px 0.8rem 2.2rem !important;
+  }
+
+  .page-title {
+    font-size: clamp(1.35rem, 8.5vw, 1.75rem) !important;
+  }
+
+  .page-subtitle {
+    font-size: 0.74rem !important;
+  }
+
+  .site-sidebar {
+    width: min(94vw, 320px) !important;
   }
 }

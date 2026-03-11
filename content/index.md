@@ -1,62 +1,49 @@
 ---
 title: Appendix
+subtitle: Översikt över webbplatsens sidor, sektioner och ingångar
 ---
 
-# Appendix
+## Appendix
 
-Detta appendix fungerar som en sammanhållen orientering över webbplatsens sidor, sektioner och ingångar.
-
-:::{div}
-:class: appendix-directory
 ### A. [Om mig](/om-mig)
 
-Profil, arbetssätt, värderingar och teknisk grund.
-
-- Tankesättet
-- Varför det spelar roll
-- Värderingar om AI och dess plats i samhället
-- Teknik och verktyg
-- Vad jag gör idag
+- A1. Tankesättet
+- A2. Varför det spelar roll
+- A3. Värderingar om AI och dess plats i samhället
+- A4. Teknik och verktyg
+- A5. Vad jag gör idag
 
 ---
 
 ### B. [Kompetensprofil](/kompetensprofil)
 
-En kondenserad men praktisk översikt av kompetenser, systemtänkande, teknikstack och professionell passform.
-
-- Kärnkompetenser
-- Teknikstack
-- Professionell passform
+- B1. Kärnkompetenser
+- B2. Teknikstack
+- B3. Professionell passform
 
 ---
 
 ### C. [Ai. pipelines och grafer](/harness-engineering)
 
-Arkitektur för agentflöden, harness engineering och distribuerade AI-system.
-
-- Harness engineering och pipelines
-- Kritisk granskning av genomförbarhet
-- Typsäkerhet, minnesstrukturer och multi-modellnätverk
-- MCP, ACP, RAG, LoRA och KV-cache
+-  C1. Harness engineering och pipelines
+-  C2. Kritisk granskning av genomförbarhet
+-  C3. Typsäkerhet, minnesstrukturer och multi-modellnätverk
+-  C4. MCP, ACP, RAG, LoRA och KV-cache
 
 ---
 
 ### D. [Automation](/automatisera-arbetsfloden)
 
-Probabilistisk automation, dokumentgranskning, avvikelsehantering och systemresiliens.
-
-- Från deterministisk till probabilistisk automatisering
-- Reducering av redundans
-- Dokumentgranskning och avvikelsehantering
-- Kvalitetssäkring och systemresiliens
+ -  D1. Från deterministisk till probabilistisk automatisering
+ -  D2. Reducering av redundans
+ -  D3. Dokumentgranskning och avvikelsehantering
+ -  D4. Kvalitetssäkring och systemresiliens
 
 ---
 
 ### E. [Datorseende och Generativ Syntes](/computer-vision)
 
-Visuell informationsutvinning, akustisk analys och generativa modeller för bild, ljud och syntetisk data.
+  - E1. Visuell informationsutvinning och bearbetning
+  - E2. Akustisk analys via spektrogram
+  - E3. Från diskriminativ analys till generativ syntes
 
-- Visuell informationsutvinning och bearbetning
-- Akustisk analys via spektrogram
-- Från diskriminativ analys till generativ syntes
-:::
