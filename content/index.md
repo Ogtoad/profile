@@ -3,7 +3,7 @@ title: Appendix
 subtitle: Översikt över webbplatsens sidor, sektioner och ingångar
 ---
 
-## Appendix
+Denna sida är under konstruktion. Men välkommen att utforska innehållet nedan.
 
 ### A. [Om mig](/om-mig)
 
