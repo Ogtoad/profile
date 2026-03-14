@@ -1,0 +1,14 @@
+title: Phi-ihP
+description: AI-konsult med fokus på tillämpad matematik, systemarkitektur och konkret värdeskapande.
+
+nav:
+  - file: content/index.md
+    title: Appendix
+  - file: content/om-mig.md
+    title: Om mig
+  - file: content/kompetensprofil.md
+    title: Kompetensprofil
+
+site:
+  favicon: ./favicon.svg
+  logo: ./logo.png

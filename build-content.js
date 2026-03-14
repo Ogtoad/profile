@@ -21,9 +21,9 @@ const RUNTIME_LOADER = `<script>
 (function bootstrapProphileRuntimeLoader() {
   "use strict";
   try {
-    var themeLink = document.querySelector('link[href$="myst-theme.css"], link[href*="/myst-theme.css"]');
+    var themeLink = document.querySelector('link[href$="theme.css"], link[href*="/theme.css"]');
     var href = themeLink ? themeLink.getAttribute("href") : "";
-    var match = href ? href.match(/^(.*)\\/myst-theme\\.css(?:\\?.*)?$/) : null;
+    var match = href ? href.match(/^(.*)\\/theme\\.css(?:\\?.*)?$/) : null;
     var basePath = match && match[1] && match[1] !== "/" ? match[1].replace(/\\/+$/, "") : "";
     var runtimeUrl = (basePath ? basePath : "") + "/site-runtime.js";
     if (document.querySelector('script[src="' + runtimeUrl + '"]')) {
@@ -719,7 +719,9 @@ function renderPageBody(page) {
 }
 
 function renderPaginationLink(direction, page) {
-  return `<a class="site-pagination-link ${direction}" href="${escapeAttribute(getPageHref(page.slug))}"><span class="site-pagination-eyebrow">${SITE_BRAND}</span><span class="site-pagination-label">${escapeHtml(page.navTitle)}</span></a>`;
+  const isPrev = direction === 'site-pagination-link-prev';
+  const eyebrow = isPrev ? '← Tillbaka' : 'Nästa →';
+  return `<a class="site-pagination-link ${direction}" href="${escapeAttribute(getPageHref(page.slug))}"><span class="site-pagination-eyebrow">${eyebrow}</span><span class="site-pagination-label">${escapeHtml(page.navTitle)}</span></a>`;
 }
 
 function renderPagination(pages, currentIndex) {
@@ -775,10 +777,10 @@ function renderHtmlDocument(page, pages) {
     '  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />',
     '  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous" />',
     '  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />',
-    '  <link rel="stylesheet" href="/myst-theme.css" />',
+    '  <link rel="stylesheet" href="/theme.css" />',
     '  <script src="/site-data.js" defer></script>',
     '  <script>',
-    '    const savedTheme = localStorage.getItem("myst:theme");',
+    '    const savedTheme = localStorage.getItem("theme");',
     '    const theme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";',
     '    const classes = document.documentElement.classList;',
     '    const hasAnyTheme = classes.contains("light") || classes.contains("dark");',

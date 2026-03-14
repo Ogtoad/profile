@@ -9,13 +9,4 @@
   <url>
     <loc>http://localhost:3000/kompetensprofil/</loc>
   </url>
-  <url>
-    <loc>http://localhost:3000/harness-engineering/</loc>
-  </url>
-  <url>
-    <loc>http://localhost:3000/automatisera-arbetsfloden/</loc>
-  </url>
-  <url>
-    <loc>http://localhost:3000/computer-vision/</loc>
-  </url>
 </urlset>

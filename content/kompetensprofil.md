@@ -6,7 +6,7 @@ description: En kondenserad överblick av Philip Prstojevics kompetenser och ver
 
 # Kompetensprofil
 
-En koncis översikt av mina kompetensområden, arbetssätt och verktyg inom tillämpad AI, systemutveckling och teknisk problemlösning.
+Vad jag kan, vad jag använder, och var jag passar bäst.
 
 ---
 
@@ -60,7 +60,8 @@ En koncis översikt av mina kompetensområden, arbetssätt och verktyg inom till
 ---
 
 (professionell-passform)=
-# Professionell passform
-  Edgecases, Research & Development. Uppdrag som kräver både teknisk bredd och förmåga att fördjupa sig snabbt i nya domäner. Miljöer där prototyper, forskning och praktisk leverans behöver drivas i samma arbete.
+## Professionell passform
+
+Edge cases och R&D. Uppdrag som kräver både teknisk bredd och förmågan att snabbt gå djupt i en ny domän. Miljöer där prototyping, forskning och faktisk leverans sker i samma arbete – inte i sekvens.
 
 ---

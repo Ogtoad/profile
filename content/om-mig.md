@@ -8,7 +8,7 @@ description: AI-konsult med fokus på tillämpad matematik, systemarkitektur och
 
 
 
-Jag bygger intelligenta system som automatiserar komplexa arbetsflöden – inte genom att blint implementera ramverk, utan genom att faktiskt förstå problemet från grundprinciper. Idag arbetar jag som frilanskonsult med tillämpad AI, där jag hjälper organisationer att eliminera redundans och frigöra tid.
+Jag bygger intelligenta system som automatiserar komplexa arbetsflöden – inte genom att blint implementera ramverk, utan genom att faktiskt förstå problemet från grundprinciper. Som frilanskonsult inom tillämpad AI hjälper jag organisationer att eliminera redundans och frigöra tid för arbete som faktiskt kräver en människa.
 
 
 (tankesattet)=
@@ -17,6 +17,7 @@ Jag bygger intelligenta system som automatiserar komplexa arbetsflöden – inte
 
 
 Det finns en utbredd missuppfattning om att kompetens antingen har djup eller bredd, och att det ena utesluter det andra. AI är inte en isolerad ingenjörsdisciplin – det är en syntes av lingvistik, biologi, matematik och mänskligt tänkande. Jag har aldrig respekterat gränsen mellan discipliner, och det är just det som gör mig effektiv.
+
 Jag ägnar mycket tid åt att följa vetenskapliga framsteg från områden som vid första anblick är brett skilda. Inget av dessa intressen har varit sidospår – de har alltid stått i linje med större frågor som delas av alla domäner, precis som fallet är med AI.
 
 ---
@@ -39,7 +40,11 @@ Ett fult och plottrigt gränssnitt kan göra den kraftfullaste backend-arkitektu
 
 
 
-Ai är ett verktyg, inte en ersättare för mänskligt tänkande. Det är en förlängning av vårt intellekt, inte en ersättare för det. Ai är en möjlighet att automatisera repetitiva och tidskrävande uppgifter, vilket frigör tid för vad som har värde, och minskar distansen mellan intention och resultat. Titta på de flesta människors arbetsdag, kanske på din egen, och fundera på hur stor del av livet som är redudanta utföranden av tankelösa uppgifter. Det är den tiden vi vill åt. Vi är på väg in i en framtid som kommer belöna människor baserat på deras välvilliga intentioner och förmåga att tänka kritiskt och kreativt, snarare än att genomlida meningslösa uppgifter. För varje dag som går får vi tillgång till kraftfullare verktyg, verktyg som gör det möjligt att förverkliga det vi kan föreställa oss, utan gränser eller gränssnitt. Så den stora frågan blir då, vad vill vi egentligen skapa?
+Ai är ett verktyg, inte en ersättare för mänskligt tänkande. En förlängning av intellektet, inte ett substitut för det.
+
+Titta på de flesta människors arbetsdag – kanske på din egen – och fundera på hur stor del som är redundanta utföranden av tankelösa uppgifter. Det är den tiden vi vill åt. Ai är möjligheten att automatisera just det: frigöra tid för vad som faktiskt kräver omdöme, nyfikenhet och intention.
+
+Vi är på väg in i en tid som belönar förmågan att tänka kritiskt och kreativt, snarare än att genomlida meningslösa uppgifter. För varje dag som går får vi tillgång till kraftfullare verktyg – verktyg som minskar distansen mellan vad vi kan föreställa oss och vad vi kan bygga. Frågan är inte längre om det är möjligt. Frågan är vad vi egentligen vill skapa.
 
 ---
 
