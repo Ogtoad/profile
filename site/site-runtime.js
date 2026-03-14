@@ -45,9 +45,9 @@
   }
 
   function deriveBasePathFromTheme() {
-    var themeLink = document.querySelector('link[href$="myst-theme.css"], link[href*="/myst-theme.css"]');
+    var themeLink = document.querySelector('link[href$="theme.css"], link[href*="/theme.css"]');
     var href = themeLink ? themeLink.getAttribute('href') : '';
-    var match = href ? href.match(/^(.*)\/myst-theme\.css(?:\?.*)?$/) : null;
+    var match = href ? href.match(/^(.*)\/theme\.css(?:\?.*)?$/) : null;
 
     if (!match) {
       return '';
